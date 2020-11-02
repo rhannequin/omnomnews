@@ -1,0 +1,19 @@
+{
+  "window.zoomLevel": 2,
+  "ruby.interpreter.commandPath": "/Users/remy/.rvm/rubies/ruby-2.7.2/bin/ruby",
+  "ruby.lint": {
+    "rubocop": true
+  },
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "ruby.rubocop.executePath": "/Users/remy/.rvm/gems/ruby-2.7.2/bin/",
+  "ruby.rubocop.configFilePath": "/Users/remy/code/omnomnom/.rubocop.yml",
+  "ruby.rubocop.onSave": true,
+  "[ruby]": {
+      "editor.tabSize": 2,
+  },
+  "editor.renderLineHighlight": "all",
+  "ruby.intellisense": "rubyLocate",
+  "files.associations": {},
+  "editor.tokenColorCustomizations": null,
+}
