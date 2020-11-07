@@ -15,7 +15,6 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
-
 group :development, :test do
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails'
@@ -24,10 +23,10 @@ end
 
 group :development do
   gem 'listen', '~> 3.2'
-  gem 'rubocop'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'spring'
+  gem 'rubocop', '~> 1.1'
+  gem 'rubocop-performance', '~> 1.8'
+  gem 'rubocop-rails', '~> 2.8'
+  gem 'spring', '~> 2.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
@@ -35,8 +34,8 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'database_cleaner'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-  gem "webmock"
+  gem 'database_cleaner', '~> 1.8'
+  gem 'selenium-webdriver', '~> 3'
+  gem 'webdrivers', '~> 4.4'
+  gem 'webmock', '~> 3.9'
 end
