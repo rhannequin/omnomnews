@@ -74,13 +74,20 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     concurrent-ruby (1.1.7)
+    crack (0.4.4)
     crass (1.0.6)
     database_cleaner (1.8.5)
     diff-lcs (1.4.4)
     erubi (1.9.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hashdiff (1.0.1)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
@@ -166,6 +173,7 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.10.0)
+    rss (0.2.8)
     rubocop (1.1.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
@@ -228,6 +236,10 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
+    webmock (3.9.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     webpacker (4.3.0)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
@@ -244,15 +256,17 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
-  byebug
+  byebug (~> 11.1)
   capybara (>= 2.15)
   database_cleaner
+  factory_bot_rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (~> 1.2)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rspec-rails
+  rss (~> 0.2)
   rubocop
   rubocop-performance
   rubocop-rails
@@ -263,6 +277,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   web-console (>= 3.3.0)
   webdrivers
+  webmock
   webpacker (~> 4.0)
 
 RUBY VERSION

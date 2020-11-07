@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Ruby Weekly</title>
+    <description>A free, once–weekly e-mail round-up of Ruby news and articles.</description>
+    <link>https://rubyweekly.com/</link>
+    <item>
+      <title>Turning VS Code into a Ruby IDE</title>
+      <link>https://rubyweekly.com/issues/526</link>
+      <description>Issue #525 description</description>
+      <pubDate>Thu, 29 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://rubyweekly.com/issues/525</guid>
+    </item>
+    <item>
+      <title>RuboCop goes 1.0</title>
+      <link>https://rubyweekly.com/issues/524</link>
+      <description>Issue #524 description</description>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://rubyweekly.com/issues/524</guid>
+    </item>
+    <item>
+      <title>Typing opinions, better Ruby docs, and the world beyond Rails</title>
+      <link>https://rubyweekly.com/issues/523</link>
+      <description>Issue #523 description</description>
+      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://rubyweekly.com/issues/523</guid>
+    </item>
+  </channel>
+</rss>

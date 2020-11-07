@@ -39,3 +39,14 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore Editors files
+.idea/
+*.swo
+*.sublime-workspace
+*.swn
+.swm
+*.swm
+*.swl
+.vscode
+*.swk
