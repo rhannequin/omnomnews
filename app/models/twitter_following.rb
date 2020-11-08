@@ -1,0 +1,2 @@
+class TwitterFollowing < ApplicationRecord
+end
