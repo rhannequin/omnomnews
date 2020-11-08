@@ -10,15 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_07_231208) do
+ActiveRecord::Schema.define(version: 2020_11_08_144747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rss_feed_items", force: :cascade do |t|
+    t.bigint "rss_feed_id"
+    t.string "identifier", null: false
+    t.string "title", null: false
+    t.string "link"
+    t.text "description"
+    t.datetime "published_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_rss_feed_items_on_identifier"
+    t.index ["rss_feed_id"], name: "index_rss_feed_items_on_rss_feed_id"
+  end
 
   create_table "rss_feeds", force: :cascade do |t|
     t.string "uri", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title", null: false
+    t.string "link"
+    t.text "description"
   end
 
   create_table "twitter_followings", force: :cascade do |t|

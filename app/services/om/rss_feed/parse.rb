@@ -4,17 +4,17 @@ require "rss"
 require "open-uri"
 
 class Om::RssFeed::Parse
-  def initialize(rss_feed)
-    @rss_feed = rss_feed
+  def initialize(uri)
+    @uri = uri
     super()
   end
 
   def parse
-    rss = URI.parse(rss_feed.uri).open
+    rss = URI.parse(uri).open
     RSS::Parser.parse(rss)
   end
 
   private
 
-  attr_reader :rss_feed
+  attr_reader :uri
 end

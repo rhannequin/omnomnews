@@ -3,7 +3,7 @@ require:
   - rubocop-performance
 
 AllCops:
-  TargetRubyVersion: 2.7.1
+  TargetRubyVersion: 2.7.2
   Exclude:
     - 'db/**/*'
 
