@@ -39,5 +39,5 @@ group :test do
   gem 'database_cleaner', '~> 1.8'
   gem 'selenium-webdriver', '~> 3'
   gem 'webdrivers', '~> 4.4'
-  gem 'webmock', '~> 3.9'
+  gem 'webmock', '~> 3.10'
 end
