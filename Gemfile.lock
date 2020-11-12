@@ -112,7 +112,7 @@ GEM
       activesupport (>= 5.0.0)
     jsonapi-serializer (2.1.0)
       activesupport (>= 4.2)
-    listen (3.2.1)
+    listen (3.3.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.7.0)
@@ -302,7 +302,7 @@ DEPENDENCIES
   factory_bot_rails
   jbuilder (~> 2.7)
   jsonapi-serializer
-  listen (~> 3.2)
+  listen (~> 3.3)
   pg (~> 1.2)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
