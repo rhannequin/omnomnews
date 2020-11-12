@@ -10,7 +10,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jbuilder', '~> 2.7'
 gem 'jsonapi-serializer'
 gem 'pg', '~> 1.2'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 5.0'
 gem 'rss', '~> 0.2'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
