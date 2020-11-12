@@ -53,30 +53,6 @@ describe Om::RssFeed::Create do
           .to change { RssFeed.count }.by(1)
           .and change { RssFeedItem.count }.by(1)
       end
-
-      context "when item has no data to generate identifier" do
-        let(:item) { { title: "Feed Item Title" } }
-
-        it "raises" do
-          expect { subject.perform }.to(
-            raise_error(Om::Errors::RssFeedItemIdentifierError)
-          )
-        end
-      end
-    end
-
-    context "when feed has no channel" do
-      let(:feed_object) do
-        {
-          title: {
-            content: "Feed Title",
-          },
-        }
-      end
-
-      it "creates a new RssFeed" do
-        expect { subject.perform }.to change { RssFeed.count }.by(1)
-      end
     end
   end
 end
