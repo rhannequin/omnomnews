@@ -24,7 +24,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.2'
+  gem 'listen', '~> 3.3'
   gem 'rubocop', '~> 1.1'
   gem 'rubocop-performance', '~> 1.8'
   gem 'rubocop-rails', '~> 2.8'
