@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_144747) do
+ActiveRecord::Schema.define(version: 2020_11_14_142623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,33 @@ ActiveRecord::Schema.define(version: 2020_11_08_144747) do
     t.string "title", null: false
     t.string "link"
     t.text "description"
+  end
+
+  create_table "tweet_uris", force: :cascade do |t|
+    t.bigint "tweet_id"
+    t.string "url"
+    t.string "expanded_url"
+    t.string "display_url"
+    t.integer "indice_start"
+    t.integer "indice_end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tweet_id"], name: "index_tweet_uris_on_tweet_id"
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.bigint "twitter_following_id"
+    t.bigint "identifier", null: false
+    t.string "content", null: false
+    t.datetime "tweeted_at", null: false
+    t.boolean "truncated", default: false, null: false
+    t.boolean "retweet", default: false, null: false
+    t.bigint "retweet_identifier"
+    t.boolean "quote", default: false, null: false
+    t.bigint "quote_identifier"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["twitter_following_id"], name: "index_tweets_on_twitter_following_id"
   end
 
   create_table "twitter_followings", force: :cascade do |t|

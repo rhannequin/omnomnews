@@ -4,6 +4,10 @@ require "json"
 
 module TwitterFake
   class Client
+    def status(*args)
+      @_status ||= Tweet.new.tweet
+    end
+
     def user_timeline(*args)
       @_user_timeline ||= UserTimeline.new.timeline
     end
@@ -17,14 +21,10 @@ module TwitterFake
 
   class Tweet
     def tweet
-      OpenStruct.new(raw_data)
+      JSON.parse(fixtures, object_class: OpenStruct)
     end
 
     private
-
-    def raw_data
-      JSON.parse(fixtures)
-    end
 
     def fixtures
       File.read(
