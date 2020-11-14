@@ -1,4 +1,4 @@
-# Omnomnom ![specs](https://github.com/rhannequin/omnomnom/workflows/CI/badge.svg)
+# Omnomnews ![specs](https://github.com/rhannequin/omnomnews/workflows/CI/badge.svg)
 
 ## Requirements
 
@@ -14,7 +14,7 @@ $ bundle e rails db:prepare
 
 ## CI
 
-[Project's Github Actions](https://github.com/rhannequin/omnomnom/actions)
+[Project's Github Actions](https://github.com/rhannequin/omnomnews/actions)
 
 ## Test
 

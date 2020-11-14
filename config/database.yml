@@ -8,7 +8,7 @@ development:
   <<: *default
   host: localhost
   port: 5432
-  database: omnomnom_development
+  database: omnomnews_development
   username: <%= Rails.application.credentials.dig(:development, :db_user) %>
   password: <%= Rails.application.credentials.dig(:development, :db_password) %>
 
@@ -19,7 +19,7 @@ test:
   <<: *default
   host: localhost
   port: 5432
-  database: omnomnom_test
+  database: omnomnews_test
   username: <%= Rails.application.credentials.dig(:test, :db_user) %>
   password: <%= Rails.application.credentials.dig(:test, :db_password) %>
 
