@@ -12,6 +12,12 @@
 $ bundle e rails db:prepare
 ```
 
+## Run
+
+```sh
+$ bundle e foreman start -f Procfile
+```
+
 ## CI
 
 [Project's Github Actions](https://github.com/rhannequin/omnomnews/actions)

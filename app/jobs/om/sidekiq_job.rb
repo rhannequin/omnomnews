@@ -1,2 +1,2 @@
-class Om::SidekiqJob < ActiveJob::Base
+class Om::SidekiqJob < ApplicationJob
 end
