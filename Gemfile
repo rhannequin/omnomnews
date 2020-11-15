@@ -7,6 +7,7 @@ ruby '2.7.2'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'clockwork', require: false
 gem 'foreman', '~> 0.87'
 gem 'jbuilder', '~> 2.7'
 gem 'jsonapi-serializer'
