@@ -30,7 +30,7 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   gem 'rubocop', '~> 1.3'
-  gem 'rubocop-performance', '~> 1.8'
+  gem 'rubocop-performance', '~> 1.9'
   gem 'rubocop-rails', '~> 2.8'
   gem 'spring', '~> 2.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
