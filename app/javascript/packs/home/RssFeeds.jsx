@@ -1,12 +1,23 @@
 import React from "react"
 
-export default function RssFeeds({rssFeeds}) {
+import RssFeed from "./RssFeed"
+
+export default function RssFeeds({rssFeeds, includedRelationships}) {
+  function getItems(rssFeed) {
+    const itemIds = rssFeed.relationships.items.data.map(item => item.id)
+    return includedRelationships.filter(
+      relationship => itemIds.includes(relationship.id)
+    )
+  }
+
   return (
     <>
       {rssFeeds && rssFeeds.map((rssFeed, i) => (
-        <p key={i} className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
-          {rssFeed.attributes.title}
-        </p>
+        <RssFeed
+          key={i}
+          title={rssFeed.attributes.title}
+          items={getItems(rssFeed)}
+        />
       ))}
     </>
   )
