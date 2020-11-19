@@ -6,7 +6,7 @@ export default function RssFeedItems({items}) {
   return (
     <>
       {items.length && (
-        <ul className="mt-4 max-w-2xl lg:mx-auto space-y-6">
+        <ul className="mb-8 max-w-2xl lg:mx-auto space-y-4">
           {items.map((item, i) => (
             <RssFeedItem key={i} item={item} />
           ))}
