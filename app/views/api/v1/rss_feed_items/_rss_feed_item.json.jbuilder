@@ -1,3 +1,4 @@
+json.type :rss_feed_item
 json.(rss_feed_item, :title, :link)
 
 json.rss_feed do

@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react"
 
 import { getRssFeedItems } from "../core/api"
 
-import GroupedRssFeedItems from "./GroupedRssFeedItems"
+import GroupedElements from "./GroupedElements"
 
 export default function App() {
-  const [groupedRssFeedItems, setGroupedRssFeedItems] = useState([])
+  const [groupedElements, setGroupedElements] = useState([])
 
   useEffect(() => {
     getRssFeedItems()
       .then(response => {
-        setGroupedRssFeedItems(response.data)
+        setGroupedElements(response.data)
       }).catch(err => { console.log(err) })
   }, [])
 
   return (
-    <GroupedRssFeedItems groups={groupedRssFeedItems} />
+    <GroupedElements groups={groupedElements} />
   )
 }
