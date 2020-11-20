@@ -10,9 +10,7 @@ class Om::Twitter::SyncUser < Om::Service
     client
       .user_timeline(twitter_following.username, default_options)
       .map do |raw_tweet|
-        tweet = ::Tweet.new(
-          Om::Twitter::Tweet::Proxy.new(twitter_following, raw_tweet).attributes
-        )
+        tweet = ::Tweet.new(Om::Twitter::Tweet::Proxy.new(raw_tweet).attributes)
 
         unless twitter_following.tweets.exists?(identifier: tweet.identifier)
           twitter_following.tweets << tweet

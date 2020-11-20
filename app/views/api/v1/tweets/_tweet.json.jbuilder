@@ -1,5 +1,5 @@
 json.type :tweet
-json.(tweet, :content, :truncated, :retweet, :quote)
+json.(tweet, :content, :truncated, :retweet, :retweet_author, :quote)
 
 json.author do
   json.username tweet.twitter_following.username

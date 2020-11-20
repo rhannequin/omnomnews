@@ -3,9 +3,8 @@
 require "rails_helper"
 
 describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
-  subject { described_class.new(twitter_following, tweet) }
+  subject { described_class.new(tweet) }
 
-  let(:twitter_following) { FactoryBot.create(:twitter_following) }
   let(:tweet) { Om::Twitter::Client.new.provider.status }
 
   describe "#attributes" do
