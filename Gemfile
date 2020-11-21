@@ -27,7 +27,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.3'
-  gem 'rubocop', '~> 0.86.0'
+  gem 'rubocop', '~> 1.3.1'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'spring', '~> 2.1'
