@@ -5,10 +5,14 @@ require:
 AllCops:
   TargetRubyVersion: 2.7.2
   Exclude:
+    - 'bin/**/*'
     - 'db/**/*'
+    - 'node_modules/**/*'
 
 Rails:
   Enabled: true
+
+# Custom cops
 
 Style/StringLiteralsInInterpolation:
   Enabled: false
@@ -39,3 +43,21 @@ Metrics/AbcSize:
 
 Metrics/MethodLength:
   Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded

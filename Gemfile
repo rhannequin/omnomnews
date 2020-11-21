@@ -10,7 +10,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'foreman', '~> 0.87'
 gem 'hamlit', '~> 2.13'
 gem 'jbuilder', '~> 2.7'
-gem 'jsonapi-serializer'
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.0'
 gem 'rss', '~> 0.2'
@@ -28,9 +27,9 @@ end
 
 group :development do
   gem 'listen', '~> 3.3'
-  gem 'rubocop', '~> 1.3'
-  gem 'rubocop-performance', '~> 1.8'
-  gem 'rubocop-rails', '~> 2.8'
+  gem 'rubocop', '~> 0.86.0'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
   gem 'spring', '~> 2.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'

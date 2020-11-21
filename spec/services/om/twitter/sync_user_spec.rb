@@ -32,7 +32,7 @@ describe Om::Twitter::SyncUser, :twitter_fake_api do
           tweeted_at: Time.current,
         }
       end
-  
+
       before do
         allow_any_instance_of(Om::Twitter::Tweet::Proxy).to(
           receive(:attributes).and_return(raw_tweet)
@@ -40,7 +40,7 @@ describe Om::Twitter::SyncUser, :twitter_fake_api do
       end
 
       it "doesn't create a tweet" do
-        expect { subject.perform }.not_to change { Tweet.count }
+        expect { subject.perform }.not_to(change { Tweet.count })
       end
     end
   end

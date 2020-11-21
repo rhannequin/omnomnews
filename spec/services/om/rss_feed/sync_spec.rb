@@ -61,7 +61,9 @@ describe Om::RssFeed::Sync do
       end
 
       it "doesn't add a new RssFeedItem" do
-        expect { subject.perform }.not_to change { rss_feed.reload.items.count }
+        expect { subject.perform }.not_to(
+          change { rss_feed.reload.items.count }
+        )
       end
     end
   end

@@ -3,7 +3,6 @@
 require "rails_helper"
 
 describe Om::RssFeed::Proxy do
-
   let(:uri) { "https://google.com" }
 
   let(:minimal_attributes) do

@@ -4,12 +4,12 @@ require "json"
 
 module TwitterFake
   class Client
-    def status(*args)
-      @_status ||= Tweet.new.tweet
+    def status(*_args)
+      @status ||= Tweet.new.tweet
     end
 
-    def user_timeline(*args)
-      @_user_timeline ||= UserTimeline.new.timeline
+    def user_timeline(*_args)
+      @user_timeline ||= UserTimeline.new.timeline
     end
   end
 

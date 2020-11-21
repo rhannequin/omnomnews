@@ -25,16 +25,16 @@ class Om::Twitter::Tweet::Proxy
     attr[:retweet_author] = main_tweet.user.screen_name if tweet.retweet?
     attr[:quote_identifier] = tweet.quoted_status if tweet.quote?
 
-    if main_tweet.uris?
-      attr[:tweet_uris] = main_tweet.uris.map do |uri|
-        ::TweetUri.new(
-          url: uri.url,
-          expanded_url: uri.expanded_url,
-          display_url: uri.display_url,
-          indice_start: uri.indices.first,
-          indice_end: uri.indices.last,
-        )
-      end
+    return unless main_tweet.uris?
+
+    attr[:tweet_uris_attributes] = main_tweet.uris.map do |uri|
+      {
+        url: uri.url,
+        expanded_url: uri.expanded_url,
+        display_url: uri.display_url,
+        indice_start: uri.indices.first,
+        indice_end: uri.indices.last,
+      }
     end
   end
 

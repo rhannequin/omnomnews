@@ -26,8 +26,7 @@ class Om::RssFeedItem::Proxy
                  item.try(:id)
 
     unless identifier
-      raise Om::Errors::RssFeedItemIdentifierError
-        .new("Could not define identifier for RssFeedItem")
+      raise Om::Errors::RssFeedItemIdentifierError, "Could not define identifier for RssFeedItem"
     end
 
     identifier

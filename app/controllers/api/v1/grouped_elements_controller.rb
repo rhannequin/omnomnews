@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::V1::RssFeedItemsController < Api::V1::Base
+class Api::V1::GroupedElementsController < Api::V1::Base
   THRESHOLD = 20
 
   def index

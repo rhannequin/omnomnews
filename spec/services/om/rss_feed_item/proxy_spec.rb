@@ -3,7 +3,6 @@
 require "rails_helper"
 
 describe Om::RssFeedItem::Proxy do
-
   let(:minimal_attributes) do
     {
       id: "identifier-#{rand}",
@@ -176,7 +175,7 @@ describe Om::RssFeedItem::Proxy do
       context "with 'pubDate'" do
         let(:parsed_rss_feed_item) do
           minimal_attributes.merge({
-            pubDate: Time.parse("2020-11-02T21:32:11+00:00"),
+            pubDate: Time.zone.parse("2020-11-02T21:32:11+00:00"),
           })
         end
 

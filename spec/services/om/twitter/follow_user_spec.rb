@@ -8,7 +8,7 @@ describe Om::Twitter::FollowUser do
     subject { described_class.new(username) }
 
     it "creates a new TwitterFollowing" do
-      expect { subject.perform }.to change { TwitterFollowing.count }.by(1) 
+      expect { subject.perform }.to change { TwitterFollowing.count }.by(1)
     end
   end
 end
