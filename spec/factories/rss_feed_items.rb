@@ -6,5 +6,6 @@ FactoryBot.define do
     identifier { "identifier-#{rand}" }
     title { "Random Rss Feed Item Title" }
     link { "https://getaround.tech/rails-6-unnoticed-features/" }
+    published_at { Time.current }
   end
 end

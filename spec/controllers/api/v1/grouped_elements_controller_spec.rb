@@ -6,8 +6,8 @@ describe Api::V1::GroupedElementsController do
   describe "GET #index" do
     let(:subject) { get :index, params: { format: :json } }
 
-    let!(:twitter_followings) { FactoryBot.create_list(:twitter_following, 2) }
-    let!(:rss_feeds) { FactoryBot.create_list(:rss_feed, 2) }
+    let!(:twitter_followings) { FactoryBot.create_list(:twitter_following, 2, :with_tweets) }
+    let!(:rss_feed_items) { FactoryBot.create_list(:rss_feed_item, 2) }
 
     it "is successfull" do
       subject
