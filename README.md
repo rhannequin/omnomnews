@@ -15,7 +15,7 @@ $ bundle e rails db:prepare
 ## Run
 
 ```sh
-$ bundle e foreman start -f Procfile
+$ bundle e foreman start -f Procfile.dev
 ```
 
 ## CI
