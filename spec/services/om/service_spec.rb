@@ -5,7 +5,7 @@ require "rails_helper"
 describe Om::Service do
   subject(:service) do
     Class.new(described_class) do
-      perform {}
+      perform {} # rubocop:disable Lint/EmptyBlock
     end.new
   end
 
