@@ -50,3 +50,6 @@ yarn-debug.log*
 *.swl
 .vscode
 *.swk
+
+# Ignore code coverage reports
+/coverage/*
