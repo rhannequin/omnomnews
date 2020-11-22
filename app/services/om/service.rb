@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class Om::Service
-  include ActiveModel::Validations
+  include Om::Validations
 
   class ServiceFailedError < StandardError
     attr_reader :errors
 
     def initialize(error)
       @error = error
-      super("Service failed: #{errors.full_messages.join(", ")}")
+      super("Service failed: #{errors.inspect}")
     end
   end
 
@@ -17,7 +17,7 @@ class Om::Service
     errors.count.zero?
   end
 
-  def perform!(args)
+  def perform!(*args)
     perform(*args) or raise ServiceFailedError, errors
   end
 
