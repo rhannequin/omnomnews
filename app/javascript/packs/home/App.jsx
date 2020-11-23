@@ -3,18 +3,23 @@ import React, { useState, useEffect } from "react"
 import { getGroupedElements } from "../core/api"
 
 import GroupedElements from "./GroupedElements"
+import Actions from "./Actions"
 
 export default function App() {
   const [groupedElements, setGroupedElements] = useState([])
 
-  useEffect(() => {
+  const refreshElementList = () => {
     getGroupedElements()
-      .then(response => {
-        setGroupedElements(response.data)
-      }).catch(err => { console.log(err) })
-  }, [])
+      .then(response => { setGroupedElements(response.data) })
+      .catch(err => { console.log(err) })
+  }
+
+  useEffect(refreshElementList, [])
 
   return (
-    <GroupedElements groups={groupedElements} />
+    <>
+      <Actions />
+      <GroupedElements groups={groupedElements} />
+    </>
   )
 }
