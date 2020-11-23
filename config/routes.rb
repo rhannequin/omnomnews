@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: "json" } do
     namespace :v1 do
       resources :grouped_elements, only: :index
+      resources :twitter_followings, only: :create
     end
   end
 end

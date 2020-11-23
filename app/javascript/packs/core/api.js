@@ -2,6 +2,7 @@ import axios from "./axios"
 
 const API_BASE = "/api/v1"
 const GROUPED_ELEMENTS_ENDPOINT = "/grouped_elements"
+const CREATE_TWITTER_FOLLOWING_ENDPOINT = "/twitter_followings"
 
 export const getRssFeeds = () => {
   return new Promise((resolve, reject) => {
@@ -15,6 +16,14 @@ export const getGroupedElements = () => {
   return new Promise((resolve, reject) => {
     axios
       .get(API_BASE + GROUPED_ELEMENTS_ENDPOINT)
+      .then(response => { resolve(response.data) }, reject)
+  })
+}
+
+export const postTwitterFollowing = (params) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(API_BASE + CREATE_TWITTER_FOLLOWING_ENDPOINT, params)
       .then(response => { resolve(response.data) }, reject)
   })
 }

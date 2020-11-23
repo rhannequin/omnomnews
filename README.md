@@ -24,7 +24,11 @@ $ bundle e foreman start -f Procfile.dev
 
 ## Test
 
+### Requirements
+
+* `chromedriver` (`$ brew install chromedriver`)
+* `$ bundle e rails db:prepare RAILS_ENV=test`
+
 ```sh
-$ bundle e rails db:prepare RAILS_ENV=test
 $ bundle e rspec
 ```
