@@ -54,5 +54,27 @@ describe Om::RssFeed::Create do
           .and change { RssFeedItem.count }.by(1)
       end
     end
+
+    context "when parsing failed" do
+      let(:error_message) { "Something failed" }
+
+      before do
+        parse_dbl = double(Om::RssFeed::Parse)
+        allow(Om::RssFeed::Parse).to receive(:new).and_return(parse_dbl)
+        allow(parse_dbl).to(
+          receive(:parse)
+            .and_raise(Om::Errors::RssFeedParsingError, error_message)
+        )
+      end
+
+      it "returns false" do
+        expect(subject.perform).to eq(false)
+      end
+
+      it "adds the error to the service" do
+        subject.perform
+        expect(subject.errors).to include(error_message)
+      end
+    end
   end
 end

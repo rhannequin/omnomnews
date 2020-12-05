@@ -8,6 +8,8 @@ class Om::RssFeed::Create < Om::Service
 
   perform do
     RssFeed.create!(rss_feed_attributes)
+  rescue Om::Errors::RssFeedParsingError => e
+    add_error(e.message)
   end
 
   private
