@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :grouped_elements, only: :index
       resources :twitter_followings, only: :create
+      resources :rss_feeds, only: :create
     end
   end
 end
