@@ -26,6 +26,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'database_consistency', require: false
   gem 'listen', '~> 3.3'
   gem 'rubocop'
   gem 'rubocop-performance'
