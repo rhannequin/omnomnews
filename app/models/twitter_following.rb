@@ -2,4 +2,6 @@
 
 class TwitterFollowing < ApplicationRecord
   has_many :tweets, dependent: :destroy
+
+  validates :username, presence: true
 end
