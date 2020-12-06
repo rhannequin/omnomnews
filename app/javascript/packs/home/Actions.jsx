@@ -65,7 +65,7 @@ export default function Actions() {
         {displayRssFeedSuccessMessage && (
           <Alert status="success" title="Success">
             <p>
-              Rss feed successfully added, data will be synchronized soon.
+              RSS feed successfully added, data will be synchronized soon.
             </p>
           </Alert>
         )}
@@ -80,7 +80,7 @@ export default function Actions() {
             onClick={toggleRssFeedModal}
             className="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
           >
-            Add Rss Feed
+            Add RSS feed
           </button>
         </div>
       </div>

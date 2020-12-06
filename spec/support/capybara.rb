@@ -46,20 +46,3 @@ when :chrome
     Capybara::Selenium::Driver.new(app, driver_options)
   end
 end
-
-RSpec.configure do |config|
-  unless ENV["DISABLE_JS_ERRORS"]
-    config.after(:each, :js) do
-      errors = page.driver.browser.manage.logs.get(:browser)
-      aggregate_failures "JS errors" do
-        errors.each do |error|
-          levels = %w[SEVERE ERROR].freeze
-          levels.each do |level|
-            expect(error.level).not_to eq(level), error.message
-          end
-          warn "[JS WARN] #{error.message}" if error.level == "WARNING"
-        end
-      end
-    end
-  end
-end

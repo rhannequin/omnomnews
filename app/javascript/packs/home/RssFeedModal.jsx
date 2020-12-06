@@ -20,7 +20,7 @@ export default function RssFeedModal({ request, onClose }) {
 
   return (
     <Modal ariaLabel="add-rss-feed" onDismiss={onClose}>
-      <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+      <div className="js-rss-feed-modal bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
         {errors.length > 0 && (
           <ModalErrorAlert errors={errors} />
         )}

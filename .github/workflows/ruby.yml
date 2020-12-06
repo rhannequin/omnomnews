@@ -40,8 +40,12 @@ jobs:
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       run: |
         gem install bundler
+        yarn install
         bundle install --jobs 4 --retry 3
         bundle exec rails db:prepare
+
+    - name: Webpack compilation
+      run: NODE_ENV=test bundle exec rails webpacker:compile
 
     - name: Run Tests
       env:
