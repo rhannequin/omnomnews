@@ -1,0 +1,4 @@
+en:
+  date:
+    formats:
+      long_with_weekday_name_summary: "%A %d %B"

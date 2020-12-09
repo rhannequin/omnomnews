@@ -1,0 +1,7 @@
+%li
+
+  - if element.is_a?(Tweet)
+    = render "tweet", tweet: element
+
+  - elsif element.is_a?(RssFeedItem)
+    = render "rss_feed_item", item: element
