@@ -3,4 +3,8 @@
 class HomeController < ApplicationController
   def index
   end
+
+  def monolith
+    @grouped_elements = Om::Queries::GroupedElements.new.fetch
+  end
 end

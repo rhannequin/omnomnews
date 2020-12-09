@@ -1,0 +1,16 @@
+- presenter = Om::TweetPresenter.new(tweet)
+
+.block
+
+  = render "layouts/svg/twitter_icon"
+
+  %span.p-1.mr-1.text-blue-400.text-xs.border.rounded-lg.border-blue-400
+    = presenter.twitter_account_url(tweet.twitter_following.username, target: "_blank", rel: "noopener noreferrer")
+
+  - if tweet.retweet?
+    %span.p-1.leading-3.text-xs.border.rounded-lg.border-green-300
+      = render "layouts/svg/retweet_icon"
+      = presenter.twitter_account_url(tweet.retweet_author, class: "text-green-300", target: "_blank", rel: "noopener noreferrer")
+
+%p.text-base.text-blue-900
+  = raw presenter.enriched_content
