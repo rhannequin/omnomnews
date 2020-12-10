@@ -8,9 +8,9 @@
     .app-container
 
       .mb-8.max-w-2xl.lg:mx-auto.space-y-4.text-center
-        %button.mr-1.bg-blue-400.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded-full
+        %button.mr-1.shadow-md.rounded-full.py-3.px-6.bg-blue-400.hover:bg-blue-600.text-white.font-bold
           = t("home.actions.twitter_cta")
-        %button.bg-green-400.hover:bg-green-700.text-white.font-bold.py-2.px-4.rounded-full
+        %button.shadow-md.rounded-full.py-3.px-6.bg-green-400.hover:bg-green-600.text-white.font-bold
           = t("home.actions.rss_feed_cta")
 
       - @grouped_elements.each do |time, elements|

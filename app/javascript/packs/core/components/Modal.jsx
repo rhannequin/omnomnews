@@ -11,7 +11,7 @@ export default function Modal({ariaLabel, onDismiss, children}) {
     >
       <DialogContent
         aria-label={ariaLabel}
-        className="rounded-md relative max-w-lg bg-white outline-none overflow-hidden w-11/12 my-20 mx-auto shadow-xl"
+        className="rounded-md relative max-w-lg bg-white outline-none overflow-hidden w-11/12 my-20 mx-auto"
         style={{ maxHeight: "calc(100% - 48px)" }}
       >
         {children}

@@ -72,13 +72,13 @@ export default function Actions() {
         <div className="text-center">
           <button
             onClick={toggleTwitterModal}
-            className="mr-1 bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            className="mr-1 shadow-md rounded-full py-3 px-6 bg-blue-400 hover:bg-blue-600 text-white font-bold"
           >
             Add Twitter account
           </button>
           <button
             onClick={toggleRssFeedModal}
-            className="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+            className="shadow-md rounded-full py-3 px-6 bg-green-400 hover:bg-green-600 text-white font-bold"
           >
             Add RSS feed
           </button>
