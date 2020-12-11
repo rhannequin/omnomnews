@@ -8,3 +8,7 @@
 /*! purgecss end ignore */
 
 @import "tailwindcss/utilities";
+
+nav.menu a.current {
+  @apply bg-gray-900 text-white;
+}

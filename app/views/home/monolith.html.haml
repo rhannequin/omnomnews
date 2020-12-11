@@ -1,16 +1,11 @@
 .py-2.bg-white
   .max-w-screen-xl.mx-auto.px-4.sm:px-6.lg:px-8
-
-    .py-8.text-center
-      %p.text-base.leading-6.text-indigo-600.font-semibold.tracking-wide.uppercase
-        = t("app.name")
-
     .app-container
 
       .mb-8.max-w-2xl.lg:mx-auto.space-y-4.text-center
-        %button.mr-1.shadow-md.rounded-full.py-3.px-6.bg-blue-400.hover:bg-blue-600.text-white.font-bold
+        %button.mr-1.shadow-md.rounded-full.py-2.px-4.bg-blue-400.hover:bg-blue-600.text-white.font-bold
           = t("home.actions.twitter_cta")
-        %button.shadow-md.rounded-full.py-3.px-6.bg-green-400.hover:bg-green-600.text-white.font-bold
+        %button.shadow-md.rounded-full.py-2.px-4.bg-green-400.hover:bg-green-600.text-white.font-bold
           = t("home.actions.rss_feed_cta")
 
       - @grouped_elements.each do |time, elements|
@@ -21,3 +16,5 @@
         %ul.mb-8.max-w-2xl.space-y-4.lg:mx-auto
           - elements.each do |element|
             = render "element", element: element
+
+= javascript_pack_tag "home/monolith"

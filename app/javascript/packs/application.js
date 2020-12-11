@@ -3,4 +3,4 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import "../css/application.css"
+import "../css/application.scss"
