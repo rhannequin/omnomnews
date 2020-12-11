@@ -1,0 +1,10 @@
+= form_tag rodauth.login_path, method: :post do
+  .shadow.overflow-hidden.sm:rounded-md
+    .px-4.py-5.bg-white.sm:p-6
+      .grid.grid-cols-6.gap-6
+        -if rodauth.skip_login_field_on_login?
+          = render "login_display"
+        -else
+          = render "login_field"
+        = render "password_field" unless rodauth.skip_password_field_on_login?
+        = render "submit", value: "Login"

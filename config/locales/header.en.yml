@@ -1,0 +1,11 @@
+en:
+  header:
+    account:
+      change_email: Change email
+      change_password: Change password
+      close_account: Close account
+      sign_in: Sign in
+      sign_out: Sign out
+      sign_up: Sign up
+    menu:
+      open: Open main menu

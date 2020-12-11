@@ -2,10 +2,10 @@
 
 require "rails_helper"
 
-describe Api::V1::RssFeedsController do
+describe Api::V1::RssFeedsController, type: :request do
   describe "POST #create" do
     let(:subject) do
-      post :create, params: {
+      post api_v1_rss_feeds_path, params: {
         format: :json,
         rss_feed: { uri: FactoryBot.build(:rss_feed).uri },
       }

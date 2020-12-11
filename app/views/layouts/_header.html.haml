@@ -1,4 +1,5 @@
 %nav.menu.block.bg-gray-800
+
   .max-w-7xl.mx-auto.px-4.sm:px-6.lg:px-8
     .flex.items-center.justify-between.h-16
       .flex.items-center
@@ -9,23 +10,39 @@
             = t("app.name")
         .hidden.md:block
           .ml-10.flex.items-baseline.space-x-4
-            -# Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
-            %a.current.px-3.py-2.rounded-md.text-sm.font-medium{ href: "#" }
-              Dashboard
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.px-3.py-2.rounded-md.text-sm.font-medium{ href: "#" }
-              Team
+            - if rodauth.logged_in?
+              = link_to rodauth.change_password_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+                = t("header.account.change_password")
+              = link_to rodauth.change_login_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+                = t("header.account.change_email")
+              = link_to rodauth.close_account_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+                = t("header.account.close_account")
+              = link_to rodauth.logout_path, method: :post, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+                = t("header.account.sign_out")
+            - else
+              = link_to rodauth.login_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+                = t("header.account.sign_in")
+              = link_to rodauth.create_account_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+                = t("header.account.sign_up")
       .-mr-2.flex.md:hidden
         %button.js-menu.bg-gray-800.inline-flex.items-center.justify-center.p-2.rounded-md.text-gray-400.hover:text-white.hover:bg-gray-700.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-offset-gray-800.focus:ring-white{ "aria-expanded": "false" }
-          %span.sr-only Open main menu
+          %span.sr-only= t("header.menu.open")
           .js-closed-icon.block.h-6.w-6= render "layouts/svg/menu"
           .js-opened-icon.hidden.h-6.w-6= render "layouts/svg/cross"
 
-  -# Mobile menu, toggle classes based on menu state.
-  -# Open: "block", closed: "hidden"
   .js-mobile-menu.hidden.md:hidden
     .px-2.pt-2.pb-3.space-y-1.sm:px-3
-      -# Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
-      %a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium{ href: "#" }
-        Dashboard
-      %a.text-gray-300.hover:bg-gray-700.hover:text-white.block.px-3.py-2.rounded-md.text-base.font-medium{ href: "#" }
-        Team
+      - if rodauth.logged_in?
+        = link_to rodauth.change_password_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+          = t("header.account.change_password")
+        = link_to rodauth.change_login_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+          = t("header.account.change_email")
+        = link_to rodauth.close_account_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+          = t("header.account.close_account")
+        = link_to rodauth.logout_path, method: :post, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+          = t("header.account.sign_out")
+      - else
+        = link_to rodauth.login_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+          = t("header.account.sign_in")
+        = link_to rodauth.create_account_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+          = t("header.account.sign_up")

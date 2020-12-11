@@ -2,10 +2,10 @@
 
 require "rails_helper"
 
-describe Api::V1::TwitterFollowingsController do
+describe Api::V1::TwitterFollowingsController, type: :request do
   describe "POST #create" do
     let(:subject) do
-      post :create, params: {
+      post api_v1_twitter_followings_path, params: {
         format: :json,
         twitter_following: { username: "dhh" },
       }

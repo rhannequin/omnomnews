@@ -1,0 +1,4 @@
+= text_field_tag name, local_assigns[:value] || params[name], type: local_assigns[:type] || "text", id: local_assigns[:id], autocomplete: local_assigns[:autocomplete], inputmode: local_assigns[:inputmode], required: local_assigns[:required] != false, class: "#{local_assigns[:class]} #{"is-invalid" if rodauth.field_error(name)} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", aria: ({ invalid: "true", describedby: "#{name}_error_message" } if rodauth.field_error(name))
+
+- unless local_assigns[:skip_error_message]
+  = render "field_error", name: name

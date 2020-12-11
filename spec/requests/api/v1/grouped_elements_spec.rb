@@ -2,9 +2,11 @@
 
 require "rails_helper"
 
-describe Api::V1::GroupedElementsController do
+describe Api::V1::GroupedElementsController, type: :request do
   describe "GET #index" do
-    let(:subject) { get :index, params: { format: :json } }
+    let(:subject) do
+      get api_v1_grouped_elements_path, params: { format: :json }
+    end
 
     let!(:twitter_followings) { FactoryBot.create_list(:twitter_following, 2, :with_tweets) }
     let!(:rss_feed_items) { FactoryBot.create_list(:rss_feed_item, 2) }

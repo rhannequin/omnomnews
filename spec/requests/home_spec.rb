@@ -2,9 +2,9 @@
 
 require "rails_helper"
 
-describe HomeController do
+describe HomeController, type: :request do
   describe "GET #index" do
-    let(:subject) { get :index }
+    let(:subject) { get root_path }
 
     it "is successfull" do
       subject

@@ -1,0 +1,8 @@
+.mt-5.md:mt-0.md:col-span-2
+  = form_tag rodauth.change_login_path, method: :post do
+    = render "login_field"
+    - if rodauth.require_login_confirmation?
+      = render "login_confirm_field"
+    - if rodauth.change_login_requires_password?
+      = render "password_field"
+    = render "submit", value: "Change Login"
