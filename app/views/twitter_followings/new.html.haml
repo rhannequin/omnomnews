@@ -12,10 +12,10 @@
         %p.text-sm.text-gray-500
           = t("twitter_followings.new.subtitle")
 
-  = form_for @form, url: twitter_followings_path, method: :post, as: :twitter_following, class: "mt-8 space-y-6" do |f|
+  = form_for @form, url: twitter_followings_path, method: :post, as: :twitter_following, html: { class: "mt-8 space-y-6 twitter-form" } do |f|
     .rounded-md.-space-y-px
       .block
-        = f.label :username, "Twitter username", class: "sr-only"
+        = f.label :username, t("twitter_followings.new.username.name"), class: "sr-only"
         .mt-1.flex.rounded-md
           %span.inline-flex.items-center.px-3.rounded-l-md.border.border-r-0.border-gray-300.bg-gray-50.text-gray-500.text-sm
             @

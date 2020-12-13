@@ -1,10 +1,12 @@
-= javascript_pack_tag "home/index"
-
 .py-2.bg-white
   .max-w-screen-xl.mx-auto.px-4.sm:px-6.lg:px-8
+    .app-container.mt-4
 
-    .py-8.text-center
-      %p.text-base.leading-6.text-indigo-600.font-semibold.tracking-wide.uppercase
-        Omnomnews
+      - @grouped_elements.each do |time, elements|
 
-    .app-container
+        %span.mb-2.max-w-2xl.lg:mx-auto.text-center.uppercase.text-xs.font-sans.tracking-wide.font-bold.block.text-gray-500
+          %time= l(time, format: :long_with_weekday_name_summary)
+
+        %ul.mb-8.max-w-2xl.space-y-4.lg:mx-auto
+          - elements.each do |element|
+            = render "element", element: element

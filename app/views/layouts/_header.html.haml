@@ -8,7 +8,7 @@
         .flex
           %p.text-base.leading-6.text-indigo-600.font-semibold.tracking-wide.uppercase
             = t("app.name")
-        .hidden.md:block
+        .hidden.md:block.md-menu
           .ml-10.flex.items-baseline.space-x-4
             - if rodauth.logged_in?
               = link_to new_twitter_following_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
