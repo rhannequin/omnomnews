@@ -2,7 +2,7 @@
 
 .block
 
-  = render "layouts/svg/twitter_icon"
+  %span.mr-1= render "layouts/svg/twitter_icon"
 
   %span.p-1.mr-1.text-blue-400.text-xs.border.rounded-lg.border-blue-400
     = presenter.twitter_account_url(tweet.twitter_following.username, target: "_blank", rel: "noopener noreferrer")

@@ -1,0 +1,8 @@
+en:
+  twitter_followings:
+    new:
+      username:
+        placeholder: e.g. dhh
+      submit: Add
+      subtitle: Enter the username of a Twitter account you want to follow
+      title: Add a new Twitter account

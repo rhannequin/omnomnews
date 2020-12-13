@@ -5,15 +5,16 @@ class RodauthApp < Rodauth::Rails::App
     # List of authentication features that are loaded.
     enable(
       :create_account,
-      :verify_account,
-      :verify_account_grace_period,
-      :login, :logout,
+      # :verify_account,
+      # :verify_account_grace_period,
+      :login,
+      :logout,
       :remember,
       :reset_password,
       :change_password,
       :change_password_notify,
       :change_login,
-      :verify_login_change,
+      # :verify_login_change,
       :close_account,
     )
 
@@ -39,7 +40,7 @@ class RodauthApp < Rodauth::Rails::App
     # account_password_hash_column :password_digest
 
     # Set password when creating account instead of when verifying.
-    verify_account_set_password? false
+    # verify_account_set_password? false
 
     # Redirect back to originally requested location after authentication.
     # login_return_to_requested_location? true
@@ -144,7 +145,7 @@ class RodauthApp < Rodauth::Rails::App
     logout_redirect "/"
 
     # Redirect to wherever login redirects to after account verification.
-    verify_account_redirect { login_redirect }
+    # verify_account_redirect { login_redirect }
 
     # Redirect to login page after password reset.
     reset_password_redirect { login_path }

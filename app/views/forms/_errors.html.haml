@@ -1,0 +1,7 @@
+- if form.errors.any?
+  .text-white.px-6.py-4.border-0.rounded.relative.mb-4.bg-red-500
+    %span.inline-block.align-middle.mr-8
+      %b Error
+    %ul.list-disc
+      - form.errors.full_messages.each do |error|
+        %li= error
