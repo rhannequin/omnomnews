@@ -66,6 +66,9 @@ jobs:
     - name: Check code guidelines
       run: bundle exec rubocop
 
+    - name: Check for security vulnerabilities
+      run: bundle exec brakeman
+
     - name: Run coverage analysis
       uses: actions/upload-artifact@master
       if: always()
