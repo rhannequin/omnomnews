@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-feature "homepage", :twitter_fake_api, js: true do
+feature "Twitter accounts", :twitter_fake_api, js: true do
   let(:twitter_service_status) { true }
 
   before do

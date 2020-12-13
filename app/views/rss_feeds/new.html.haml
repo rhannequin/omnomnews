@@ -1,0 +1,23 @@
+.m-4
+
+  = render "forms/errors", form: @form
+
+  .sm:flex.sm:items-start
+    .mx-auto.flex-shrink-0.flex.items-center.justify-center.h-12.w-12.rounded-full.bg-green-100.sm:mx-0.sm:h-10.sm:w-10
+      = render "layouts/svg/rss_feed_icon"
+    .mt-3.text-center.sm:mt-0.sm:ml-4.sm:text-left
+      %h3.text-lg.leading-6.font-medium.text-gray-900
+        = t("rss_feeds.new.title")
+      .mt-2
+        %p.text-sm.text-gray-500
+          = t("rss_feeds.new.subtitle")
+
+  = form_for @form, url: rss_feeds_path, method: :post, as: :rss_feed, html: { class: "mt-8 space-y-6 rss-feed-form" } do |f|
+    .rounded-md.-space-y-px
+      .block
+        = f.label :uri, t("rss_feeds.new.uri.name"), class: "sr-only"
+        .mt-1.flex.rounded-md
+          = f.text_field :uri, required: true, placeholder: t("rss_feeds.new.uri.placeholder"), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-r-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+
+    .px-4.py-3.sm:px-6
+      = f.submit t("rss_feeds.new.submit"), class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"

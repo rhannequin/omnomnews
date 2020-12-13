@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :twitter_followings, only: %i[new create]
+  resources :rss_feeds, only: %i[new create]
 end
