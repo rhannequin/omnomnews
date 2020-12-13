@@ -4,7 +4,4 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "../css/application.scss"
-
-import header from "./header"
-
-header()
+import "controllers"
