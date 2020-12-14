@@ -6,18 +6,16 @@ describe Om::SyncAllSourcesJob do
   describe "#perform_now" do
     subject(:job) { described_class.perform_now }
 
+    before { ActiveJob::Base.queue_adapter = :test }
+
     it "enqueues sync Twitter job" do
-      expect(Om::Twitter::TwitterFollowing::SyncAllJob).to(
-        receive(:perform_later), # rubocop:disable RSpec/MessageSpies
-      )
       job
+      expect(Om::Twitter::TwitterFollowing::SyncAllJob).to have_been_enqueued
     end
 
     it "enqueues sync RSS feed job" do
-      expect(Om::RssFeed::SyncAllJob).to(
-        receive(:perform_later), # rubocop:disable RSpec/MessageSpies
-      )
       job
+      expect(Om::RssFeed::SyncAllJob).to have_been_enqueued
     end
   end
 end

@@ -6,13 +6,15 @@ describe Om::Twitter::TwitterFollowing::SyncAllJob do
   describe "#perform_now" do
     subject(:job) { described_class.perform_now }
 
+    before { ActiveJob::Base.queue_adapter = :test }
+
     let!(:twitter_following) { FactoryBot.create(:twitter_following) }
 
     it "enqueues sync job for existing record" do
-      expect(Om::Twitter::TwitterFollowing::SyncJob).to(
-        receive(:perform_later).with(twitter_following.id), # rubocop:disable RSpec/MessageSpies
-      )
       job
+      expect(Om::Twitter::TwitterFollowing::SyncJob).to(
+        have_been_enqueued.with(twitter_following.id)
+      )
     end
   end
 end
