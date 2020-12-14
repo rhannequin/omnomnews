@@ -17,17 +17,26 @@ describe Om::Queries::GroupedElements do
     end
 
     context "when there are two elements with different dates" do
-      let!(:tweet1) { FactoryBot.create(:tweet, tweeted_at: Time.current.midnight) }
-      let!(:tweet2) { FactoryBot.create(:tweet, tweeted_at: Time.zone.yesterday.midnight) }
+      let!(:tweet1) do
+        FactoryBot.create(:tweet, tweeted_at: Time.current.midnight)
+      end
+      let!(:tweet2) do
+        FactoryBot.create(:tweet, tweeted_at: Time.zone.yesterday.midnight)
+      end
 
-      it "contains the two elements with different dates" do
+      it "contains the first date" do
         expect(fetch.first).to match([tweet1.tweeted_at.to_date, [tweet1]])
+      end
+
+      it "contains the second date" do
         expect(fetch.second).to match([tweet2.tweeted_at.to_date, [tweet2]])
       end
     end
 
     context "when there are two different elements for the same date" do
-      let!(:tweet) { FactoryBot.create(:tweet, tweeted_at: Time.current.midnight) }
+      let!(:tweet) do
+        FactoryBot.create(:tweet, tweeted_at: Time.current.midnight)
+      end
 
       let!(:rss_feed_item) do
         FactoryBot.create(:rss_feed_item, published_at: Time.current.midnight)

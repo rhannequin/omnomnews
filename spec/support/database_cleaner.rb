@@ -3,27 +3,17 @@
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:deletion)
-  end
+  config.before(:suite) { DatabaseCleaner.clean_with(:deletion) }
 
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
+  config.before { DatabaseCleaner.strategy = :transaction }
 
   config.before(:each, non_transactional: true) do
     DatabaseCleaner.strategy = :deletion
   end
 
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :truncation
-  end
+  config.before(:each, js: true) { DatabaseCleaner.strategy = :truncation }
 
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
+  config.before { DatabaseCleaner.start }
 
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  config.after { DatabaseCleaner.clean }
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Om::FollowTwitterUser < Om::Form
+class Om::FollowTwitterUserForm < Om::Form
   attribute :username, :string
 
   validates_presence_of :username

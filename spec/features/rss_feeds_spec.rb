@@ -2,16 +2,20 @@
 
 require "rails_helper"
 
-feature "RSS feeds", js: true do
+# rubocop:disable RSpec/ExampleLength
+# rubocop:disable RSpec/MultipleExpectations
+describe "RSS feeds", js: true do
   let(:rss_feed_service_status) { true }
 
   before do
-    allow_any_instance_of(Om::FollowRssFeed).to(
-      receive(:submit).and_return(rss_feed_service_status)
+    # rubocop:disable RSpec/AnyInstance
+    allow_any_instance_of(Om::FollowRssFeedForm).to(
+      receive(:submit).and_return(rss_feed_service_status),
     )
+    # rubocop:enable RSpec/AnyInstance
   end
 
-  scenario "I can add a new RSS feed" do
+  it "I can add a new RSS feed" do
     login_as(FactoryBot.build(:account))
 
     within ".md-menu" do
@@ -36,17 +40,21 @@ feature "RSS feeds", js: true do
     let(:error_message) { "Something went wrong" }
 
     before do
-      allow_any_instance_of(Om::FollowRssFeed).to(
-        receive_message_chain(:errors, :any?)
-          .and_return(true)
+      # rubocop:disable RSpec/AnyInstance
+      # rubocop:disable RSpec/MessageChain
+      allow_any_instance_of(Om::FollowRssFeedForm).to(
+        receive_message_chain(:errors, :any?).and_return(true),
       )
-      allow_any_instance_of(Om::FollowRssFeed).to(
-        receive_message_chain(:errors, :full_messages)
-          .and_return([error_message])
+      allow_any_instance_of(Om::FollowRssFeedForm).to(
+        receive_message_chain(:errors, :full_messages).and_return(
+          [error_message],
+        ),
       )
+      # rubocop:enable RSpec/AnyInstance
+      # rubocop:enable RSpec/MessageChain
     end
 
-    scenario "I am noticed of the errors" do
+    it "I am noticed of the errors" do
       login_as(FactoryBot.build(:account))
 
       within ".md-menu" do
@@ -67,3 +75,5 @@ feature "RSS feeds", js: true do
     end
   end
 end
+# rubocop:enable RSpec/ExampleLength
+# rubocop:enable RSpec/MultipleExpectations

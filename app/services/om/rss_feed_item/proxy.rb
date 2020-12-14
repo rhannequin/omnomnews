@@ -20,13 +20,13 @@ class Om::RssFeedItem::Proxy
   attr_reader :item
 
   def identifier
-    identifier = item.try(:guid).try(:content) ||
-                 item.try(:guid) ||
-                 item.try(:id).try(:content) ||
-                 item.try(:id)
+    identifier =
+      item.try(:guid).try(:content) || item.try(:guid) ||
+      item.try(:id).try(:content) || item.try(:id)
 
     unless identifier
-      raise Om::Errors::RssFeedItemIdentifierError, "Could not define identifier for RssFeedItem"
+      raise Om::Errors::RssFeedItemIdentifierError,
+            "Could not define identifier for RssFeedItem"
     end
 
     identifier
@@ -45,12 +45,9 @@ class Om::RssFeedItem::Proxy
   end
 
   def published_at
-    item.try(:pubDate).try(:content) ||
-      item.try(:pubDate) ||
-      item.try(:published).try(:content) ||
-      item.try(:published) ||
-      item.try(:updated).try(:content) ||
-      item.try(:updated) ||
+    item.try(:pubDate).try(:content) || item.try(:pubDate) ||
+      item.try(:published).try(:content) || item.try(:published) ||
+      item.try(:updated).try(:content) || item.try(:updated) ||
       Time.current.to_s
   end
 end

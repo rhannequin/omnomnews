@@ -25,8 +25,7 @@ module Om::Validations
     @errors.delete(error)
   end
 
-  def validate
-  end
+  def validate; end
 
   module ClassMethods
     def validate(&block)

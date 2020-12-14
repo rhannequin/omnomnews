@@ -7,20 +7,11 @@ class Om::RssFeed::Proxy
   end
 
   def attributes
-    {
-      uri: uri,
-      title: title,
-      description: description,
-      link: link,
-    }
+    { uri: uri, title: title, description: description, link: link }
   end
 
   def entries
-    (
-      main.try(:items) ||
-      main.try(:entries) ||
-      []
-    ).map do |entry|
+    (main.try(:items) || main.try(:entries) || []).map do |entry|
       Om::RssFeedItem::Proxy.new(entry)
     end
   end

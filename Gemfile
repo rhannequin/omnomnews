@@ -30,9 +30,11 @@ group :development do
   gem 'brakeman'
   gem 'database_consistency', require: false
   gem 'listen', '~> 3.3'
+  gem 'prettier'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'spring', '~> 2.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'

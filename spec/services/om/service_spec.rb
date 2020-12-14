@@ -4,15 +4,15 @@ require "rails_helper"
 
 describe Om::Service do
   subject(:service) do
-    Class.new(described_class) do
-      perform {} # rubocop:disable Lint/EmptyBlock
-    end.new
+    Class
+      .new(described_class) do
+        perform {} # rubocop:disable Lint/EmptyBlock
+      end
+      .new
   end
 
   let(:service_with_error) do
-    Class.new(described_class) do
-      perform { add_error :error }
-    end.new
+    Class.new(described_class) { perform { add_error :error } }.new
   end
 
   describe "#perform" do
@@ -39,7 +39,7 @@ describe Om::Service do
 
       it "raises error" do
         expect { service.perform! }.to(
-          raise_error(Om::Service::ServiceFailedError)
+          raise_error(Om::Service::ServiceFailedError),
         )
       end
     end

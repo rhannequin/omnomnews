@@ -6,9 +6,7 @@ class Om::Twitter::FollowUser < Om::Service
     super()
   end
 
-  perform do
-    create_twitter_following!
-  end
+  perform { create_twitter_following! }
 
   private
 

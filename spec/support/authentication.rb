@@ -4,21 +4,19 @@ module AuthenticationRequestSupport
   PASSWORD = "Example_123_Password"
 
   def created_account(email)
-    post "/create-account", params: {
-      login: email,
-      "login-confirm": email,
-      password: PASSWORD,
-      "password-confirm": PASSWORD,
-    }
+    post "/create-account",
+         params: {
+           login: email,
+           "login-confirm": email,
+           password: PASSWORD,
+           "password-confirm": PASSWORD,
+         }
   end
 
   def login_as(account)
     created_account(account.email)
 
-    post "/login", params: {
-      login: account.email,
-      password: PASSWORD,
-    }
+    post "/login", params: { login: account.email, password: PASSWORD }
   end
 end
 

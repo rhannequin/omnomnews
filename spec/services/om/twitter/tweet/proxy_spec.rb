@@ -63,7 +63,7 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
             indice_start: 1,
             indice_end: 2,
           },
-        ]
+        ],
       }
     end
 
@@ -98,21 +98,21 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
           quote?: false,
           uris?: false,
           uris: [],
-          user: {
-            screen_name: "rails",
-          },
+          user: { screen_name: "rails" },
         }
       end
 
       let(:expected_attributes) do
         main_expected_attributes
-          .merge({
-            content: "Retweeted tweet content",
-            truncated: true,
-            retweet: true,
-            retweet_identifier: 2,
-            retweet_author: "rails",
-          })
+          .merge(
+            {
+              content: "Retweeted tweet content",
+              truncated: true,
+              retweet: true,
+              retweet_identifier: 2,
+              retweet_author: "rails",
+            },
+          )
           .except(:tweet_uris_attributes)
       end
 
@@ -123,10 +123,7 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
       let(:quote?) { true }
 
       let(:expected_attributes) do
-        main_expected_attributes.merge({
-          quote: true,
-          quote_identifier: 3,
-        })
+        main_expected_attributes.merge({ quote: true, quote_identifier: 3 })
       end
 
       include_examples "attributes match"

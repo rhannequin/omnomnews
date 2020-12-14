@@ -4,26 +4,19 @@ require "rails_helper"
 
 describe Om::Twitter::SyncUser, :twitter_fake_api do
   describe "#perform" do
-    subject { described_class.new(twitter_following) }
+    subject(:service) { described_class.new(twitter_following) }
 
     let(:twitter_following) { FactoryBot.create(:twitter_following) }
 
     it "creates a tweet with uris" do
-      expect { subject.perform }
-        .to change { Tweet.count }.by(1)
-        .and change { TweetUri.count }.by(1)
+      expect { service.perform }.to change(Tweet, :count).by(1).and change(
+        TweetUri,
+        :count,
+      ).by(1)
     end
 
     context "when tweet already exists" do
-      let(:tweet_identifier) { 987654321 }
-
-      let!(:existing_tweet) do
-        FactoryBot.create(
-          :tweet,
-          twitter_following: twitter_following,
-          identifier: tweet_identifier,
-        )
-      end
+      let(:tweet_identifier) { 987_654_321 }
 
       let(:raw_tweet) do
         {
@@ -33,14 +26,22 @@ describe Om::Twitter::SyncUser, :twitter_fake_api do
         }
       end
 
+      let(:proxy) do
+        instance_double(Om::Twitter::Tweet::Proxy, attributes: raw_tweet)
+      end
+
       before do
-        allow_any_instance_of(Om::Twitter::Tweet::Proxy).to(
-          receive(:attributes).and_return(raw_tweet)
+        FactoryBot.create(
+          :tweet,
+          twitter_following: twitter_following,
+          identifier: tweet_identifier,
         )
+
+        allow(Om::Twitter::Tweet::Proxy).to receive(:new).and_return(proxy)
       end
 
       it "doesn't create a tweet" do
-        expect { subject.perform }.not_to(change { Tweet.count })
+        expect { service.perform }.not_to(change(Tweet, :count))
       end
     end
   end

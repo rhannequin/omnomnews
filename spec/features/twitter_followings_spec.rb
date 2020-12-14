@@ -1,17 +1,22 @@
 # frozen_string_literal: true
 
 require "rails_helper"
+require "ostruct"
 
-feature "Twitter accounts", :twitter_fake_api, js: true do
+# rubocop:disable RSpec/ExampleLength
+# rubocop:disable RSpec/MultipleExpectations
+describe "Twitter accounts", :twitter_fake_api, js: true do
   let(:twitter_service_status) { true }
 
   before do
-    allow_any_instance_of(Om::FollowTwitterUser).to(
-      receive(:submit).and_return(twitter_service_status)
+    # rubocop:disable RSpec/AnyInstance
+    allow_any_instance_of(Om::FollowTwitterUserForm).to(
+      receive(:submit).and_return(twitter_service_status),
     )
+    # rubocop:enable RSpec/AnyInstance
   end
 
-  scenario "I can add a new Twitter account" do
+  it "I can add a new Twitter account" do
     login_as(FactoryBot.build(:account))
 
     within ".md-menu" do
@@ -33,17 +38,21 @@ feature "Twitter accounts", :twitter_fake_api, js: true do
     let(:error_message) { "Something went wrong" }
 
     before do
-      allow_any_instance_of(Om::FollowTwitterUser).to(
-        receive_message_chain(:errors, :any?)
-          .and_return(true)
+      # rubocop:disable RSpec/AnyInstance
+      # rubocop:disable RSpec/MessageChain
+      allow_any_instance_of(Om::FollowTwitterUserForm).to(
+        receive_message_chain(:errors, :any?).and_return(true),
       )
-      allow_any_instance_of(Om::FollowTwitterUser).to(
-        receive_message_chain(:errors, :full_messages)
-          .and_return([error_message])
+      allow_any_instance_of(Om::FollowTwitterUserForm).to(
+        receive_message_chain(:errors, :full_messages).and_return(
+          [error_message],
+        ),
       )
+      # rubocop:enable RSpec/AnyInstance
+      # rubocop:enable RSpec/MessageChain
     end
 
-    scenario "I am noticed of the errors" do
+    it "I am noticed of the errors" do
       login_as(FactoryBot.build(:account))
 
       within ".md-menu" do
@@ -61,3 +70,5 @@ feature "Twitter accounts", :twitter_fake_api, js: true do
     end
   end
 end
+# rubocop:enable RSpec/ExampleLength
+# rubocop:enable RSpec/MultipleExpectations

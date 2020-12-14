@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Om::FollowRssFeed < Om::Form
+class Om::FollowRssFeedForm < Om::Form
   attribute :uri, :string
 
   validates_presence_of :uri

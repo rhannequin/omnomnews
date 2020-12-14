@@ -4,11 +4,12 @@ require "rails_helper"
 
 describe Om::Twitter::FollowUser do
   describe "#perform" do
+    subject(:service) { described_class.new(username) }
+
     let(:username) { "twitter-username" }
-    subject { described_class.new(username) }
 
     it "creates a new TwitterFollowing" do
-      expect { subject.perform }.to change { TwitterFollowing.count }.by(1)
+      expect { service.perform }.to change(TwitterFollowing, :count).by(1)
     end
   end
 end

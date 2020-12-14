@@ -17,22 +17,18 @@ class Om::RssFeed::Create < Om::Service
   attr_reader :uri
 
   def feed
-    @feed ||=
-      Om::RssFeed::Proxy.new(
-        uri,
-        Om::RssFeed::Parse.new(uri).parse,
-      )
+    @feed ||= Om::RssFeed::Proxy.new(uri, Om::RssFeed::Parse.new(uri).parse)
   end
 
   def rss_feed_attributes
-    feed
-      .attributes
-      .tap { |attr| attr[:items] = items if items&.any? }
+    feed.attributes.tap do |attr|
+      if items&.any?
+        attr[:items] = items
+      end
+    end
   end
 
   def items
-    feed
-      .entries
-      .map { |item| RssFeedItem.new(item.attributes) }
+    feed.entries.map { |item| RssFeedItem.new(item.attributes) }
   end
 end

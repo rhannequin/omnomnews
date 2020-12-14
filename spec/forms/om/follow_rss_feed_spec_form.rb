@@ -2,25 +2,26 @@
 
 require "rails_helper"
 
-describe Om::FollowRssFeed do
-  subject { described_class.new }
+describe Om::FollowRssFeedForm do
+  subject(:form) { described_class.new }
 
   let(:uri) { FactoryBot.build(:rss_feed).uri }
   let(:params) { { uri: uri } }
 
-  let(:service_dbl) { double(Om::RssFeed::Create) }
+  let(:service_dbl) do
+    instance_double(Om::RssFeed::Create, perform: service_succeeded)
+  end
   let(:service_succeeded) { true }
 
   before do
     allow(Om::RssFeed::Create).to(
-      receive(:new).with(uri).and_return(service_dbl)
+      receive(:new).with(uri).and_return(service_dbl),
     )
-    allow(service_dbl).to receive(:perform).and_return(service_succeeded)
   end
 
   describe "#perform" do
     it "returns true" do
-      expect(subject.submit(params)).to eq(true)
+      expect(form.submit(params)).to eq(true)
     end
 
     context "when service is errors" do
@@ -32,12 +33,12 @@ describe Om::FollowRssFeed do
       end
 
       it "returns false" do
-        expect(subject.submit(params)).to eq(false)
+        expect(form.submit(params)).to eq(false)
       end
 
       it "contains errors" do
-        subject.submit(params)
-        expect(subject.errors.full_messages).to include(error_message)
+        form.submit(params)
+        expect(form.errors.full_messages).to include(error_message)
       end
     end
   end

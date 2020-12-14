@@ -4,8 +4,7 @@ class TwitterFollowingsController < ApplicationController
   before_action :authenticate
   before_action :set_form, only: %i[new create]
 
-  def new
-  end
+  def new; end
 
   def create
     if @form.submit params.require(:twitter_following)
@@ -18,6 +17,6 @@ class TwitterFollowingsController < ApplicationController
   private
 
   def set_form
-    @form = Om::FollowTwitterUser.new
+    @form = Om::FollowTwitterUserForm.new
   end
 end

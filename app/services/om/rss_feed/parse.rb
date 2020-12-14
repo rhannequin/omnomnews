@@ -4,9 +4,7 @@ require "rss"
 require "open-uri"
 
 class Om::RssFeed::Parse
-  KNOWN_ERRORS = [
-    RSS::MissingTagError,
-  ].freeze
+  KNOWN_ERRORS = [RSS::MissingTagError].freeze
 
   def initialize(uri)
     @uri = uri

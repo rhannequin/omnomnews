@@ -5,7 +5,9 @@ class Om::Queries::GroupedElements
 
   def fetch
     grouped_rss_feed_items
-      .merge(grouped_tweets) { |_, first_array, second_array| first_array | second_array }
+      .merge(grouped_tweets) do |_, first_array, second_array|
+        first_array | second_array
+      end
       .sort
       .reverse
   end

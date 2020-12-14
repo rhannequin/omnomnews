@@ -2,7 +2,8 @@
 
 require "rails_helper"
 
-feature "homepage", js: true do
+# rubocop:disable RSpec/MultipleExpectations
+describe "homepage", js: true do
   let!(:rss_feed_item) do
     FactoryBot.create(
       :rss_feed_item,
@@ -11,13 +12,10 @@ feature "homepage", js: true do
   end
 
   let!(:tweet) do
-    FactoryBot.create(
-      :tweet,
-      tweeted_at: Time.zone.local(2020, 12, 4),
-    )
+    FactoryBot.create(:tweet, tweeted_at: Time.zone.local(2020, 12, 4))
   end
 
-  scenario "I can see the timeline" do
+  it "I can see the timeline" do
     visit root_path
 
     expect(page).to have_content("SATURDAY 05 DECEMBER")
@@ -26,3 +24,4 @@ feature "homepage", js: true do
     expect(page).to have_content(tweet.content)
   end
 end
+# rubocop:enable RSpec/MultipleExpectations

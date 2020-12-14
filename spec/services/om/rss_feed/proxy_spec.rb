@@ -3,24 +3,16 @@
 require "rails_helper"
 
 describe Om::RssFeed::Proxy do
-  let(:uri) { "https://google.com" }
-
-  let(:minimal_attributes) do
-    {
-      uri: uri,
-      title: "Feed Title",
-    }
-  end
-
   subject do
     described_class.new(
       uri,
-      JSON.parse(
-        parsed_rss_feed.to_json,
-        object_class: OpenStruct,
-      ),
+      JSON.parse(parsed_rss_feed.to_json, object_class: OpenStruct),
     )
   end
+
+  let(:uri) { "https://google.com" }
+
+  let(:minimal_attributes) { { uri: uri, title: "Feed Title" } }
 
   shared_examples "not raising" do
     it "does not raise_error" do

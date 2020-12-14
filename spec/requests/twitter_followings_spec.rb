@@ -4,7 +4,8 @@ require "rails_helper"
 
 describe TwitterFollowingsController, type: :request do
   describe "POST #create" do
-    let(:subject) { post twitter_followings_path, params: params }
+    subject(:execute_request) { post twitter_followings_path, params: params }
+
     let(:params) { { twitter_following: { username: "dhh" } } }
 
     context "when user is authenticated" do
@@ -14,13 +15,15 @@ describe TwitterFollowingsController, type: :request do
       before do
         login_as(account)
 
-        allow_any_instance_of(Om::FollowTwitterUser).to(
-          receive(:submit).and_return(submit_status)
+        # rubocop:disable RSpec/AnyInstance
+        allow_any_instance_of(Om::FollowTwitterUserForm).to(
+          receive(:submit).and_return(submit_status),
         )
+        # rubocop:enable RSpec/AnyInstance
       end
 
       it "redirects to home page" do
-        subject
+        execute_request
         expect(response).to redirect_to(root_path)
       end
 
@@ -28,7 +31,7 @@ describe TwitterFollowingsController, type: :request do
         let(:submit_status) { false }
 
         it "returns an error status code" do
-          subject
+          execute_request
           expect(response).not_to redirect_to(root_path)
         end
       end
@@ -36,7 +39,7 @@ describe TwitterFollowingsController, type: :request do
 
     context "when user is not authenticated" do
       it "redirects to login page" do
-        subject
+        execute_request
         expect(response).to redirect_to("/login")
       end
     end

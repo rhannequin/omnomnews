@@ -27,8 +27,6 @@ class Om::RssFeed::Sync < Om::Service
   end
 
   def items
-    feed
-      .entries
-      .map { |item| RssFeedItem.new(item.attributes) }
+    feed.entries.map { |item| RssFeedItem.new(item.attributes) }
   end
 end

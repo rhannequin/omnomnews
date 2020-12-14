@@ -27,9 +27,7 @@ module TwitterFake
     private
 
     def fixtures
-      File.read(
-        Rails.root.join("spec/fixtures/twitter/tweet.json")
-      )
+      File.read(Rails.root.join("spec/fixtures/twitter/tweet.json"))
     end
   end
 end
