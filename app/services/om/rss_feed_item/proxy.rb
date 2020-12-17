@@ -45,9 +45,11 @@ class Om::RssFeedItem::Proxy
   end
 
   def published_at
-    item.try(:pubDate).try(:content) || item.try(:pubDate) ||
+    (
+      item.try(:pubDate).try(:content) || item.try(:pubDate) ||
       item.try(:published).try(:content) || item.try(:published) ||
       item.try(:updated).try(:content) || item.try(:updated) ||
-      Time.current.to_s
+      Time.current
+    ).to_s
   end
 end
