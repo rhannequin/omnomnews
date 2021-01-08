@@ -1,0 +1,14 @@
+.m-4
+
+  %table.table-auto.border-collapse
+    %thead
+      %tr
+        %th ID
+        %th Title
+        %th URI
+    %tbody
+      - @rss_feeds.each do |rss_feed|
+        %tr
+          %td= "##{rss_feed.id}"
+          %td= rss_feed.title
+          %td= link_to rss_feed.uri, rss_feed.uri, class: "no-underline hover:underline text-blue-500"
