@@ -4,6 +4,10 @@ class RssFeedsController < ApplicationController
   before_action :authenticate
   before_action :set_form, only: %i[new create]
 
+  def index
+    @rss_feeds = RssFeed.all
+  end
+
   def new; end
 
   def create
