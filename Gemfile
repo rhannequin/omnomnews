@@ -45,7 +45,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner', '~> 1.8'
   gem 'selenium-webdriver', '~> 3'
-  gem 'simplecov', '~> 0.19', require: false
+  gem 'simplecov', '~> 0.21', require: false
   gem 'webdrivers', '~> 4.4'
   gem 'webmock', '~> 3.10'
 end
