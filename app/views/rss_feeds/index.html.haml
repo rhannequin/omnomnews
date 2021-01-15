@@ -6,9 +6,11 @@
         %th ID
         %th Title
         %th URI
+        %th Actions
     %tbody
       - @rss_feeds.each do |rss_feed|
         %tr
           %td= "##{rss_feed.id}"
           %td= rss_feed.title
           %td= rss_feed.uri
+          %td= link_to "Update", edit_rss_feed_path(rss_feed), class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"

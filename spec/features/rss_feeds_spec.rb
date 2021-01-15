@@ -26,10 +26,10 @@ describe "RSS feeds", js: true do
 
     within ".rss-feed-form" do
       fill_in(
-        I18n.t("rss_feeds.new.uri.name"),
+        I18n.t("rss_feeds.change.uri.name"),
         with: FactoryBot.build(:rss_feed).uri,
       )
-      click_on I18n.t("rss_feeds.new.submit")
+      click_on I18n.t("form.submit")
     end
 
     expect(page).to have_current_path root_path
@@ -65,10 +65,10 @@ describe "RSS feeds", js: true do
 
       within ".rss-feed-form" do
         fill_in(
-          I18n.t("rss_feeds.new.uri.name"),
+          I18n.t("rss_feeds.change.uri.name"),
           with: FactoryBot.build(:rss_feed).uri,
         )
-        click_on I18n.t("rss_feeds.new.submit")
+        click_on I18n.t("form.submit")
       end
 
       expect(page).to have_content(error_message)

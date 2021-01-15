@@ -1,9 +1,11 @@
 en:
   rss_feeds:
-    new:
-      submit: Add
+    change:
       subtitle: Enter the URI of a RSS feed you want to follow
-      title: Add a new RSS feed
       uri:
         name: "URI"
         placeholder: e.g. https://weblog.rubyonrails.org/feed/atom.xml
+    edit:
+      title: Update a RSS feed
+    new:
+      title: Add a new RSS feed

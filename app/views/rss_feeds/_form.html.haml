@@ -1,0 +1,18 @@
+:ruby
+  options = if rss_feed.new_record?
+      { url: rss_feeds_path, method: :post }
+    else
+      { url: rss_feed_path(id: rss_feed), method: :patch }
+    end
+
+= render "forms/errors", form: form
+
+= form_for form, { as: :rss_feed, html: { class: "mt-8 space-y-6 rss-feed-form" } }.merge(options) do |f|
+  .rounded-md.-space-y-px
+    .block
+      = f.label :uri, t("rss_feeds.change.uri.name"), class: "sr-only"
+      .mt-1.flex.rounded-md
+        = f.text_field :uri, required: true, placeholder: t("rss_feeds.change.uri.placeholder"), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-r-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+
+  .px-4.py-3.sm:px-6
+    = f.submit t("form.submit"), class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
