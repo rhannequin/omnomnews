@@ -128,7 +128,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
-    listen (3.4.0)
+    listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.8.0)
@@ -357,7 +357,7 @@ DEPENDENCIES
   foreman (~> 0.87)
   hamlit (~> 2.13)
   jbuilder (~> 2.7)
-  listen (~> 3.3)
+  listen (~> 3.4)
   pg (~> 1.2)
   prettier
   puma (~> 5.0)

@@ -29,7 +29,7 @@ end
 group :development do
   gem 'brakeman'
   gem 'database_consistency', require: false
-  gem 'listen', '~> 3.3'
+  gem 'listen', '~> 3.4'
   gem 'prettier'
   gem 'rubocop'
   gem 'rubocop-performance'
