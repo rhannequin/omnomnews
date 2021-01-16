@@ -10,7 +10,7 @@ Capybara.javascript_driver =
   ENV.fetch("JS_DRIVER", "selenium_chrome_headless").to_sym
 Capybara.always_include_port = true
 
-Capybara.server = :webrick
+Capybara.server = :puma
 Capybara.server_host = ENV["CAPYBARA_HOST"] || "127.0.0.1"
 Capybara.reuse_server = true
 
