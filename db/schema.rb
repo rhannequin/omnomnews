@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_214835) do
+ActiveRecord::Schema.define(version: 2021_01_17_194539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_214835) do
   create_table "accounts", force: :cascade do |t|
     t.citext "email", null: false
     t.string "status", default: "verified", null: false
-    t.index ["email"], name: "index_accounts_on_email", unique: true, where: "((status)::text = ANY ((ARRAY['verified'::character varying, 'unverified'::character varying])::text[]))"
+    t.index ["email"], name: "index_accounts_on_email", unique: true, where: "((status)::text = ANY (ARRAY[('verified'::character varying)::text, ('unverified'::character varying)::text]))"
   end
 
   create_table "rss_feed_items", force: :cascade do |t|
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_214835) do
     t.string "title", null: false
     t.string "link"
     t.text "description"
+    t.integer "account_id"
   end
 
   create_table "tweet_uris", force: :cascade do |t|
@@ -111,6 +112,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_214835) do
   add_foreign_key "account_remember_keys", "accounts", column: "id"
   add_foreign_key "account_verification_keys", "accounts", column: "id"
   add_foreign_key "rss_feed_items", "rss_feeds"
+  add_foreign_key "rss_feeds", "accounts"
   add_foreign_key "tweet_uris", "tweets"
   add_foreign_key "tweets", "twitter_followings"
 end
