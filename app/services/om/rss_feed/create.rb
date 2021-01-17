@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Om::RssFeed::Create < Om::Service
-  def initialize(uri)
+  def initialize(account_id, uri)
+    @account_id = account_id
     @uri = uri
     super()
   end
@@ -14,7 +15,7 @@ class Om::RssFeed::Create < Om::Service
 
   private
 
-  attr_reader :uri
+  attr_reader :uri, :account_id
 
   def feed
     @feed ||= Om::RssFeed::Proxy.new(uri, Om::RssFeed::Parse.new(uri).parse)
@@ -22,9 +23,8 @@ class Om::RssFeed::Create < Om::Service
 
   def rss_feed_attributes
     feed.attributes.tap do |attr|
-      if items&.any?
-        attr[:items] = items
-      end
+      attr[:account_id] = account_id
+      attr[:items] = items if items&.any?
     end
   end
 

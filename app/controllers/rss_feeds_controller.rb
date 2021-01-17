@@ -2,19 +2,15 @@
 
 class RssFeedsController < ApplicationController
   before_action :authenticate
+  before_action :set_rss_feed, :set_form, only: %i[new create]
 
   def index
-    @rss_feeds = RssFeed.all
+    @rss_feeds = current_account.rss_feeds
   end
 
-  def new
-    @rss_feed = RssFeed.new
-    @form = Om::FollowRssFeedForm.new
-  end
+  def new; end
 
   def create
-    @rss_feed = RssFeed.new
-    @form = Om::FollowRssFeedForm.new
     if @form.submit params.require(:rss_feed)
       redirect_to rss_feeds_path
     else
@@ -23,8 +19,18 @@ class RssFeedsController < ApplicationController
   end
 
   def destroy
-    @rss_feed = RssFeed.find(params[:id])
+    @rss_feed = current_account.rss_feeds.find(params[:id])
     Om::RssFeed::Destroy.new(@rss_feed).perform
     redirect_to rss_feeds_path
+  end
+
+  private
+
+  def set_rss_feed
+    @rss_feed = current_account.rss_feeds.new
+  end
+
+  def set_form
+    @form = Om::FollowRssFeedForm.new(account_id: current_account.id)
   end
 end

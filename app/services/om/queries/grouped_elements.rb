@@ -3,6 +3,10 @@
 class Om::Queries::GroupedElements
   THRESHOLD = 20
 
+  def initialize(account:)
+    @account = account
+  end
+
   def fetch
     grouped_rss_feed_items
       .merge(grouped_tweets) do |_, first_array, second_array|
@@ -14,9 +18,12 @@ class Om::Queries::GroupedElements
 
   private
 
+  attr_reader :account
+
   def grouped_rss_feed_items
     RssFeedItem
       .includes(:rss_feed)
+      .where(rss_feed: { account_id: account.id })
       .order(published_at: :desc)
       .limit(THRESHOLD)
       .group_by { |rss_feed_item| rss_feed_item.published_at.to_date }

@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :rss_feed do
+    account
     uri { "https://weblog.rubyonrails.org/feed/atom.xml" }
     title { "Random Rss Feed Title" }
   end

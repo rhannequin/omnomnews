@@ -2,11 +2,16 @@
   .max-w-screen-xl.mx-auto.px-4.sm:px-6.lg:px-8
     .app-container.mt-4
 
-      - @grouped_elements.each do |time, elements|
+      - if rodauth.logged_in?
+        - @grouped_elements.each do |time, elements|
 
-        %span.mb-2.max-w-2xl.lg:mx-auto.text-center.uppercase.text-xs.font-sans.tracking-wide.font-bold.block.text-gray-500
-          %time= l(time, format: :long_with_weekday_name_summary)
+          %span.mb-2.max-w-2xl.lg:mx-auto.text-center.uppercase.text-xs.font-sans.tracking-wide.font-bold.block.text-gray-500
+            %time= l(time, format: :long_with_weekday_name_summary)
 
-        %ul.mb-8.max-w-2xl.space-y-4.lg:mx-auto
-          - elements.each do |element|
-            = render "element", element: element
+          %ul.mb-8.max-w-2xl.space-y-4.lg:mx-auto
+            - elements.each do |element|
+              = render "element", element: element
+
+      - else
+        - sign_in_link = link_to t("home.sign_in"), rodauth.login_path, class: "no-underline hover:underline text-blue-500"
+        = t("home.authentication_required_html", link: sign_in_link)

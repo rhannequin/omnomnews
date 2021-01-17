@@ -3,3 +3,6 @@ en:
     actions:
       rss_feed_cta: Add RSS feed
       twitter_cta: Add Twitter account
+    authentication_required_html: "You must %{link} to display your followed
+      sources."
+    sign_in: sign in

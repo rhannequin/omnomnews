@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :account do
-    email { "hello@rhannequ.in" }
+    sequence(:email) { |n| "hello-#{n}@email.com" }
     status { :verified }
   end
 end

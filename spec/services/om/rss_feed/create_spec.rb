@@ -4,10 +4,11 @@ require "rails_helper"
 
 describe Om::RssFeed::Create do
   describe "#perform" do
-    subject(:service) { described_class.new(uri) }
+    subject(:service) { described_class.new(account.id, uri) }
 
     include_context "when RSS feed has to be parsed"
 
+    let(:account) { FactoryBot.create(:account) }
     let(:uri) { "https://www.google.com" }
 
     it "creates a new RssFeed" do

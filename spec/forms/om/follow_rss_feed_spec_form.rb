@@ -3,8 +3,9 @@
 require "rails_helper"
 
 describe Om::FollowRssFeedForm do
-  subject(:form) { described_class.new }
+  subject(:form) { described_class.new(account_id: account.id) }
 
+  let(:account) { FactoryBot.create(:account) }
   let(:uri) { FactoryBot.build(:rss_feed).uri }
   let(:params) { { uri: uri } }
 
@@ -15,7 +16,7 @@ describe Om::FollowRssFeedForm do
 
   before do
     allow(Om::RssFeed::Create).to(
-      receive(:new).with(uri).and_return(service_dbl),
+      receive(:new).with(account.id, uri).and_return(service_dbl),
     )
   end
 

@@ -2,6 +2,10 @@
 
 class HomeController < ApplicationController
   def index
-    @grouped_elements = Om::Queries::GroupedElements.new.fetch
+    return unless rodauth.logged_in?
+
+    @grouped_elements = Om::Queries::GroupedElements
+      .new(account: current_account)
+      .fetch
   end
 end

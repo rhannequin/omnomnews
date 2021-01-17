@@ -4,8 +4,9 @@ require "rails_helper"
 
 describe Om::Queries::GroupedElements do
   describe "#fetch" do
-    subject { described_class.new }
+    subject { described_class.new(account: account) }
 
+    let(:account) { FactoryBot.create(:account) }
     let(:fetch) { subject.fetch }
 
     context "when there is only one element" do
@@ -38,8 +39,14 @@ describe Om::Queries::GroupedElements do
         FactoryBot.create(:tweet, tweeted_at: Time.current.midnight)
       end
 
+      let(:rss_feed) { FactoryBot.create(:rss_feed, account: account) }
+
       let!(:rss_feed_item) do
-        FactoryBot.create(:rss_feed_item, published_at: Time.current.midnight)
+        FactoryBot.create(
+          :rss_feed_item,
+          rss_feed: rss_feed,
+          published_at: Time.current.midnight,
+        )
       end
 
       it "contains the two elements with only one date" do
