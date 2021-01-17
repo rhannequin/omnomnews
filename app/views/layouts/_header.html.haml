@@ -4,10 +4,11 @@
     .flex.items-center.justify-between.h-16
       .flex.items-center
         .flex-shrink-0.pr-4
-          .h-8.w-8.text-indigo-600= render "layouts/svg/logo"
+          = link_to root_path do
+            .h-8.w-8.text-indigo-600= render "layouts/svg/logo"
         .flex
           %p.text-base.leading-6.text-indigo-600.font-semibold.tracking-wide.uppercase
-            = t("app.name")
+            = link_to t("app.name"), root_path
         .hidden.md:block.md-menu
           .ml-10.flex.items-baseline.space-x-4
             - if rodauth.logged_in?
