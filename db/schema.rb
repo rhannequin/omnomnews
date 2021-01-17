@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_17_194539) do
+ActiveRecord::Schema.define(version: 2021_01_17_224940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_01_17_194539) do
 
   create_table "account_password_hashes", force: :cascade do |t|
     t.string "password_hash", null: false
+    t.index ["id"], name: "index_account_password_hashes_on_id"
   end
 
   create_table "account_password_reset_keys", force: :cascade do |t|
@@ -69,7 +70,8 @@ ActiveRecord::Schema.define(version: 2021_01_17_194539) do
     t.string "title", null: false
     t.string "link"
     t.text "description"
-    t.integer "account_id"
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_rss_feeds_on_account_id"
   end
 
   create_table "tweet_uris", force: :cascade do |t|
