@@ -9,7 +9,6 @@ en:
       sign_up: Sign up
     menu:
       open: Open main menu
-    rss_feed:
-      add: Add RSS feed
+    rss_feeds: RSS feeds
     twitter_following:
       add: Add Twitter account

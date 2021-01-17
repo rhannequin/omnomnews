@@ -16,27 +16,15 @@ class RssFeedsController < ApplicationController
     @rss_feed = RssFeed.new
     @form = Om::FollowRssFeedForm.new
     if @form.submit params.require(:rss_feed)
-      redirect_to root_path
+      redirect_to rss_feeds_path
     else
       render :new
     end
   end
 
-  def edit
+  def destroy
     @rss_feed = RssFeed.find(params[:id])
-    @form = Om::UpdateRssFeedForm.new(
-      rss_feed_id: @rss_feed.id,
-      uri: @rss_feed.uri,
-    )
-  end
-
-  def update
-    @rss_feed = RssFeed.find(params[:id])
-    @form = Om::UpdateRssFeedForm.new(rss_feed_id: @rss_feed.id)
-    if @form.submit params.require(:rss_feed)
-      redirect_to root_path
-    else
-      render :edit
-    end
+    Om::RssFeed::Destroy.new(@rss_feed).perform
+    redirect_to rss_feeds_path
   end
 end

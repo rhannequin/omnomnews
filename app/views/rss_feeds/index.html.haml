@@ -3,14 +3,17 @@
   %table.table-auto.border-collapse
     %thead
       %tr
-        %th ID
-        %th Title
-        %th URI
-        %th Actions
+        %th= RssFeed.human_attribute_name(:id)
+        %th= RssFeed.human_attribute_name(:title)
+        %th= RssFeed.human_attribute_name(:uri)
+        %th= t("rss_feeds.index.actions.title")
     %tbody
       - @rss_feeds.each do |rss_feed|
         %tr
           %td= "##{rss_feed.id}"
           %td= rss_feed.title
-          %td= rss_feed.uri
-          %td= link_to "Update", edit_rss_feed_path(rss_feed), class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+          %td
+            %code= rss_feed.uri
+          %td= link_to t("rss_feeds.index.actions.delete"), rss_feed_path(rss_feed), method: :delete, data: { confirm: t("rss_feeds.index.actions.destroy_warning") }, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+
+  %p= link_to t("rss_feeds.index.actions.create"), new_rss_feed_path, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"

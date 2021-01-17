@@ -13,8 +13,8 @@
             - if rodauth.logged_in?
               = link_to new_twitter_following_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
                 = t("header.twitter_following.add")
-              = link_to new_rss_feed_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
-                = t("header.rss_feed.add")
+              = link_to rss_feeds_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+                = t("header.rss_feeds")
               = link_to rodauth.change_password_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
                 = t("header.account.change_password")
               = link_to rodauth.change_login_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
@@ -41,8 +41,8 @@
       - if rodauth.logged_in?
         = link_to new_twitter_following_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
           = t("header.twitter_following.add")
-        = link_to new_rss_feed_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
-          = t("header.rss_feed.add")
+        = link_to rss_feeds_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+          = t("header.rss_feeds")
         = link_to rodauth.change_password_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
           = t("header.account.change_password")
         = link_to rodauth.change_login_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do

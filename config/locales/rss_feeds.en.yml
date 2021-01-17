@@ -7,5 +7,11 @@ en:
         placeholder: e.g. https://weblog.rubyonrails.org/feed/atom.xml
     edit:
       title: Update a RSS feed
+    index:
+      actions:
+        create: Add new
+        destroy: Delete
+        destroy_warning: "You're about to delete this RSS feed"
+        title: Actions
     new:
       title: Add a new RSS feed

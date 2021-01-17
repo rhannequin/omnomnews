@@ -6,16 +6,9 @@ describe Om::RssFeed::Create do
   describe "#perform" do
     subject(:service) { described_class.new(uri) }
 
-    let(:uri) { "https://www.google.com" }
-    let(:feed_object) { { channel: { title: "Feed Title" } } }
-    let(:fake_rss_feed) do
-      JSON.parse(feed_object.to_json, object_class: OpenStruct)
-    end
+    include_context "when RSS feed has to be parsed"
 
-    before do
-      parse_dbl = instance_double(Om::RssFeed::Parse, parse: fake_rss_feed)
-      allow(Om::RssFeed::Parse).to receive(:new).and_return(parse_dbl)
-    end
+    let(:uri) { "https://www.google.com" }
 
     it "creates a new RssFeed" do
       expect { service.perform }.to change(RssFeed, :count).by(1).and change(

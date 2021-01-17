@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    attributes:
+      rss_feed:
+        id: ID
+        title: Title
+        uri: URI
+    models:
+      rss_feed: RSS feed
