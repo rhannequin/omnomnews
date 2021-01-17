@@ -1,9 +1,14 @@
 en:
   twitter_followings:
-    new:
-      username:
-        name: "Twitter username"
-        placeholder: e.g. dhh
-      submit: Add
+    change:
       subtitle: Enter the username of a Twitter account you want to follow
+      username:
+        placeholder: e.g. dhh
+    index:
+      actions:
+        create: Add new
+        destroy: Delete
+        destroy_warning: "You're about to delete this Twitter account"
+        title: Actions
+    new:
       title: Add a new Twitter account

@@ -6,6 +6,12 @@ class Om::FollowTwitterUserForm < Om::Form
   validates_presence_of :username
 
   def perform
-    Om::Twitter::FollowUser.new(username).perform
+    service = Om::Twitter::FollowUser.new(username)
+    return true if service.perform
+
+    service.errors.each do |error|
+      errors.add(:base, error)
+    end
+    false
   end
 end

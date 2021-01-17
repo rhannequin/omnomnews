@@ -10,5 +10,4 @@ en:
     menu:
       open: Open main menu
     rss_feeds: RSS feeds
-    twitter_following:
-      add: Add Twitter account
+    twitter_followings: Twitter accounts

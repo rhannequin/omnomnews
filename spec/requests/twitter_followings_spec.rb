@@ -24,7 +24,7 @@ describe TwitterFollowingsController, type: :request do
 
       it "redirects to home page" do
         execute_request
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(twitter_followings_path)
       end
 
       context "when form failed" do

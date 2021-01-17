@@ -1,7 +1,5 @@
 .m-4
 
-  = render "forms/errors", form: @form
-
   .sm:flex.sm:items-start
     .mx-auto.flex-shrink-0.flex.items-center.justify-center.h-12.w-12.rounded-full.bg-blue-100.sm:mx-0.sm:h-10.sm:w-10
       = render "layouts/svg/twitter_icon"
@@ -10,16 +8,6 @@
         = t("twitter_followings.new.title")
       .mt-2
         %p.text-sm.text-gray-500
-          = t("twitter_followings.new.subtitle")
+          = t("twitter_followings.change.subtitle")
 
-  = form_for @form, url: twitter_followings_path, method: :post, as: :twitter_following, html: { class: "mt-8 space-y-6 twitter-form" } do |f|
-    .rounded-md.-space-y-px
-      .block
-        = f.label :username, t("twitter_followings.new.username.name"), class: "sr-only"
-        .mt-1.flex.rounded-md
-          %span.inline-flex.items-center.px-3.rounded-l-md.border.border-r-0.border-gray-300.bg-gray-50.text-gray-500.text-sm
-            @
-          = f.text_field :username, required: true, placeholder: t("twitter_followings.new.username.placeholder"), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-r-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-
-    .px-4.py-3.sm:px-6
-      = f.submit t("twitter_followings.new.submit"), class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+  = render "twitter_followings/form", twitter_following: @twitter_following, form: @form

@@ -2,21 +2,29 @@
 
 class TwitterFollowingsController < ApplicationController
   before_action :authenticate
-  before_action :set_form, only: %i[new create]
 
-  def new; end
+  def index
+    @twitter_followings = TwitterFollowing.all
+  end
+
+  def new
+    @twitter_following = TwitterFollowing.new
+    @form = Om::FollowTwitterUserForm.new
+  end
 
   def create
+    @twitter_following = TwitterFollowing.new
+    @form = Om::FollowTwitterUserForm.new
     if @form.submit params.require(:twitter_following)
-      redirect_to root_path
+      redirect_to twitter_followings_path
     else
       render :new
     end
   end
 
-  private
-
-  def set_form
-    @form = Om::FollowTwitterUserForm.new
+  def destroy
+    @twitter_following = TwitterFollowing.find(params[:id])
+    Om::Twitter::UnfollowUser.new(@twitter_following).perform
+    redirect_to twitter_followings_path
   end
 end

@@ -12,8 +12,8 @@
         .hidden.md:block.md-menu
           .ml-10.flex.items-baseline.space-x-4
             - if rodauth.logged_in?
-              = link_to new_twitter_following_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
-                = t("header.twitter_following.add")
+              = link_to twitter_followings_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+                = t("header.twitter_followings")
               = link_to rss_feeds_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
                 = t("header.rss_feeds")
               = link_to rodauth.change_password_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
@@ -40,8 +40,8 @@
   .block.hidden.md:hidden{ "data-header-target": "toggleable" }
     .px-2.pt-2.pb-3.space-y-1.sm:px-3
       - if rodauth.logged_in?
-        = link_to new_twitter_following_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
-          = t("header.twitter_following.add")
+        = link_to twitter_followings_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+          = t("header.twitter_followings")
         = link_to rss_feeds_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
           = t("header.rss_feeds")
         = link_to rodauth.change_password_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do

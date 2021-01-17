@@ -5,13 +5,18 @@ require "rails_helper"
 describe Om::FollowTwitterUserForm do
   subject(:form) { described_class.new }
 
-  let(:params) { { username: :dhh } }
-  let(:service_return) { true }
+  let(:username) { "dhh" }
+  let(:params) { { username: username } }
+
+  let(:service_dbl) do
+    instance_double(Om::Twitter::FollowUser, perform: service_succeeded)
+  end
+  let(:service_succeeded) { true }
 
   before do
-    service_dbl =
-      instance_double(Om::Twitter::FollowUser, perform: service_return)
-    allow(Om::Twitter::FollowUser).to(receive(:new).and_return(service_dbl))
+    allow(Om::Twitter::FollowUser).to(
+      receive(:new).with(username).and_return(service_dbl),
+    )
   end
 
   describe "#perform" do
@@ -19,11 +24,21 @@ describe Om::FollowTwitterUserForm do
       expect(form.submit(params)).to eq(true)
     end
 
-    context "when service returns false" do
-      let(:service_return) { false }
+    context "when service is errors" do
+      let(:service_succeeded) { false }
+      let(:error_message) { "Something went wrong" }
+
+      before do
+        allow(service_dbl).to receive(:errors).and_return([error_message])
+      end
 
       it "returns false" do
         expect(form.submit(params)).to eq(false)
+      end
+
+      it "contains errors" do
+        form.submit(params)
+        expect(form.errors.full_messages).to include(error_message)
       end
     end
   end
