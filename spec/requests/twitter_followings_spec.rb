@@ -6,10 +6,10 @@ describe TwitterFollowingsController, type: :request do
   describe "POST #create" do
     subject(:execute_request) { post twitter_followings_path, params: params }
 
+    let(:account) { FactoryBot.create(:account) }
     let(:params) { { twitter_following: { username: "dhh" } } }
 
     context "when user is authenticated" do
-      let(:account) { FactoryBot.build(:account) }
       let(:submit_status) { true }
 
       before do

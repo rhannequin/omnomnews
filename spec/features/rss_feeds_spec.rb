@@ -5,13 +5,14 @@ require "rails_helper"
 # rubocop:disable RSpec/ExampleLength
 # rubocop:disable RSpec/MultipleExpectations
 describe "RSS feeds", js: true do
-  let(:rss_feed) { FactoryBot.build(:rss_feed) }
+  let(:account) { FactoryBot.create(:account) }
+  let(:rss_feed) { FactoryBot.build(:rss_feed, account: account) }
 
   context "when adding a RSS feed succeeds" do
     include_context "when RSS feed has to be parsed"
 
     it "I can add a new RSS feed" do
-      login_as(FactoryBot.build(:account))
+      login_as(account)
 
       within ".md-menu" do
         click_on I18n.t("header.rss_feeds")
@@ -67,7 +68,7 @@ describe "RSS feeds", js: true do
     end
 
     it "I am noticed of the errors" do
-      login_as(FactoryBot.build(:account))
+      login_as(account)
 
       within ".md-menu" do
         click_on I18n.t("header.rss_feeds")

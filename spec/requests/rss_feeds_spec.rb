@@ -6,10 +6,16 @@ describe RssFeedsController, type: :request do
   describe "POST #create" do
     subject(:execute_request) { post rss_feeds_path, params: params }
 
-    let(:params) { { rss_feed: { uri: FactoryBot.build(:rss_feed).uri } } }
+    let(:account) { FactoryBot.create(:account) }
+    let(:params) do
+      {
+        rss_feed: {
+          uri: FactoryBot.build(:rss_feed, account: account).uri,
+        },
+      }
+    end
 
     context "when user is authenticated" do
-      let(:account) { FactoryBot.build(:account) }
       let(:submit_status) { true }
 
       before do

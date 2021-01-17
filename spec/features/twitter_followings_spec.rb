@@ -5,11 +5,12 @@ require "rails_helper"
 # rubocop:disable RSpec/ExampleLength
 # rubocop:disable RSpec/MultipleExpectations
 describe "Twitter accounts", :twitter_fake_api, js: true do
+  let(:account) { FactoryBot.create(:account) }
   let(:twitter_following) { FactoryBot.build(:twitter_following) }
 
   context "when adding a Twitter account succeeds" do
     it "I can add a new Twitter account" do
-      login_as(FactoryBot.build(:account))
+      login_as(account)
 
       within ".md-menu" do
         click_on I18n.t("header.twitter_followings")
@@ -65,7 +66,7 @@ describe "Twitter accounts", :twitter_fake_api, js: true do
     end
 
     it "I am noticed of the errors" do
-      login_as(FactoryBot.build(:account))
+      login_as(account)
 
       within ".md-menu" do
         click_on I18n.t("header.twitter_followings")

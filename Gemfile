@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 gem 'rails', '~> 6.1'
 
+gem 'bcrypt', '~> 3.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'foreman', '~> 0.87'
 gem 'hamlit', '~> 2.13'
