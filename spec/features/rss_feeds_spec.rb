@@ -24,7 +24,7 @@ describe "RSS feeds", js: true do
 
       within ".rss-feed-form" do
         fill_in(
-          I18n.t("rss_feeds.change.uri.name"),
+          RssFeed.human_attribute_name(:uri),
           with: rss_feed.uri,
         )
         click_on I18n.t("form.submit")
@@ -80,7 +80,7 @@ describe "RSS feeds", js: true do
 
       within ".rss-feed-form" do
         fill_in(
-          I18n.t("rss_feeds.change.uri.name"),
+          RssFeed.human_attribute_name(:uri),
           with: FactoryBot.build(:rss_feed).uri,
         )
         click_on I18n.t("form.submit")
