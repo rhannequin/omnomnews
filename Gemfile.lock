@@ -82,7 +82,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
     crack (0.4.5)
       rexml
@@ -124,7 +124,7 @@ GEM
     http-parser (1.2.2)
       ffi-compiler
     http_parser.rb (0.6.0)
-    i18n (1.8.7)
+    i18n (1.8.8)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
@@ -202,13 +202,13 @@ GEM
     rexml (3.2.4)
     roda (3.40.0)
       rack
-    rodauth (2.8.0)
+    rodauth (2.9.0)
       roda (>= 2.6.0)
       sequel (>= 4)
-    rodauth-rails (0.7.0)
+    rodauth-rails (0.9.1)
       bcrypt
       railties (>= 4.2, < 7)
-      rodauth (~> 2.6)
+      rodauth (~> 2.9)
       sequel-activerecord_connection (~> 1.1)
       tilt
     rspec-core (3.10.1)
@@ -267,7 +267,7 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.1)
-    sequel (5.40.0)
+    sequel (5.41.0)
     sequel-activerecord_connection (1.2.2)
       activerecord (>= 4.2, < 7)
       after_commit_everywhere (~> 0.1.5)
@@ -295,7 +295,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.8.2)
-    thor (1.0.1)
+    thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -363,7 +363,7 @@ DEPENDENCIES
   prettier
   puma (~> 5.0)
   rails (~> 6.1)
-  rodauth-rails (~> 0.7.0)
+  rodauth-rails (~> 0.9.1)
   rspec-rails
   rss (~> 0.2)
   rubocop
