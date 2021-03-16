@@ -16,7 +16,7 @@ gem 'puma', '~> 5.0'
 gem "rodauth-rails", "~> 0.7.0"
 gem 'rss', '~> 0.2'
 gem 'sass-rails', '>= 6'
-gem 'sidekiq', '~> 6.1'
+gem 'sidekiq', '~> 6.2'
 gem 'turbolinks', '~> 5'
 gem 'twitter', '~> 7.0'
 gem 'webpacker', '~> 5.2'

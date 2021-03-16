@@ -272,7 +272,7 @@ GEM
       activerecord (>= 4.2, < 7)
       after_commit_everywhere (~> 0.1.5)
       sequel (~> 5.16)
-    sidekiq (6.1.2)
+    sidekiq (6.2.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -372,7 +372,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (>= 6)
   selenium-webdriver (~> 3)
-  sidekiq (~> 6.1)
+  sidekiq (~> 6.2)
   simplecov (~> 0.19)
   spring (~> 2.1)
   spring-watcher-listen (~> 2.0.0)
