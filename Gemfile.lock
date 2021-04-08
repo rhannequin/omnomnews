@@ -141,7 +141,9 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (1.0.0)
-    mimemagic (0.3.5)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.3)
@@ -272,7 +274,7 @@ GEM
       activerecord (>= 4.2, < 7)
       after_commit_everywhere (~> 0.1.5)
       sequel (~> 5.16)
-    sidekiq (6.1.2)
+    sidekiq (6.2.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -372,7 +374,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (>= 6)
   selenium-webdriver (~> 3)
-  sidekiq (~> 6.1)
+  sidekiq (~> 6.2)
   simplecov (~> 0.19)
   spring (~> 2.1)
   spring-watcher-listen (~> 2.0.0)
