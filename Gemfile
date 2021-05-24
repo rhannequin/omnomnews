@@ -12,7 +12,7 @@ gem 'foreman', '~> 0.87'
 gem 'hamlit', '~> 2.13'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.2'
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.3'
 gem "rodauth-rails", "~> 0.7.0"
 gem 'rss', '~> 0.2'
 gem 'sass-rails', '>= 6'
