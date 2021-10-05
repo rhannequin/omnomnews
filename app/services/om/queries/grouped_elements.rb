@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Om::Queries::GroupedElements
-  THRESHOLD = 20
+  THRESHOLD = 50
 
   def initialize(account:)
     @account = account
