@@ -159,7 +159,7 @@ GEM
     public_suffix (4.0.6)
     puma (5.5.0)
       nio4r (~> 2.0)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-proxy (0.7.0)
       rack
@@ -199,15 +199,15 @@ GEM
     redis (4.4.0)
     regexp_parser (2.1.1)
     rexml (3.2.5)
-    roda (3.48.0)
+    roda (3.49.0)
       rack
     rodauth (2.17.0)
       roda (>= 2.6.0)
       sequel (>= 4)
-    rodauth-rails (0.7.0)
+    rodauth-rails (0.17.1)
       bcrypt
       railties (>= 4.2, < 7)
-      rodauth (~> 2.6)
+      rodauth (~> 2.15)
       sequel-activerecord_connection (~> 1.1)
       tilt
     rspec-core (3.10.1)
@@ -339,7 +339,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   ruby
@@ -361,7 +361,7 @@ DEPENDENCIES
   prettier
   puma (~> 5.0)
   rails (~> 6.1)
-  rodauth-rails (~> 0.7.0)
+  rodauth-rails (~> 0.17.1)
   rspec-rails
   rss (~> 0.2)
   rubocop
