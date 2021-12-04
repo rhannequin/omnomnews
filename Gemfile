@@ -32,7 +32,7 @@ group :development do
   gem 'database_consistency', require: false
   gem 'listen', '~> 3.3'
   gem 'prettier'
-  gem 'rubocop'
+  gem 'rubocop', '1.22.0'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
