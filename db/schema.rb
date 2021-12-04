@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_17_224940) do
+ActiveRecord::Schema.define(version: 2021_12_04_002804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_01_17_224940) do
   end
 
   create_table "rss_feed_items", force: :cascade do |t|
-    t.bigint "rss_feed_id"
+    t.bigint "rss_feed_id", null: false
     t.string "identifier", null: false
     t.string "title", null: false
     t.string "link"
@@ -70,12 +70,12 @@ ActiveRecord::Schema.define(version: 2021_01_17_224940) do
     t.string "title", null: false
     t.string "link"
     t.text "description"
-    t.bigint "account_id"
+    t.bigint "account_id", null: false
     t.index ["account_id"], name: "index_rss_feeds_on_account_id"
   end
 
   create_table "tweet_uris", force: :cascade do |t|
-    t.bigint "tweet_id"
+    t.bigint "tweet_id", null: false
     t.string "url"
     t.string "expanded_url"
     t.string "display_url"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2021_01_17_224940) do
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.bigint "twitter_following_id"
+    t.bigint "twitter_following_id", null: false
     t.bigint "identifier", null: false
     t.string "content", null: false
     t.datetime "tweeted_at", null: false
