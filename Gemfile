@@ -8,6 +8,7 @@ gem "rails", "~> 7.0.0.alpha2"
 
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.4.4", require: false
+gem "cssbundling-rails", ">= 0.1.0"
 gem "foreman", "~> 0.87"
 gem "hamlit", "~> 2.13"
 gem "jbuilder", "~> 2.7"

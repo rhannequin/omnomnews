@@ -87,6 +87,8 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
+    cssbundling-rails (0.2.7)
+      railties (>= 6.0.0)
     database_cleaner (1.99.0)
     database_consistency (1.1.6)
       activerecord (>= 3.2)
@@ -339,6 +341,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   brakeman
   capybara (>= 3.26)
+  cssbundling-rails (>= 0.1.0)
   database_cleaner (~> 1.8)
   database_consistency
   debug (>= 1.0.0)

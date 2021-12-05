@@ -15,7 +15,16 @@ jobs:
       postgresql:
         image: postgres:11.5
         ports: ['5432:5432']
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis
+        ports:
+          - "6379:6379"
 
     strategy:
       matrix:
@@ -41,11 +50,11 @@ jobs:
       run: |
         gem install bundler
         yarn install
+        yarn build
         bundle install --jobs 4 --retry 3
+        bundle exec rails javascript:build
+        bundle exec rails css:build
         bundle exec rails db:prepare
-
-    - name: Build Esbuild
-      run: yarn build
 
     - name: Run Tests
       env:
