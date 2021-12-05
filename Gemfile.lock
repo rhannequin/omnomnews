@@ -205,10 +205,10 @@ GEM
     rodauth (2.18.0)
       roda (>= 2.6.0)
       sequel (>= 4)
-    rodauth-rails (0.7.0)
+    rodauth-rails (0.18.0)
       bcrypt
       railties (>= 4.2, < 7)
-      rodauth (~> 2.6)
+      rodauth (~> 2.15)
       sequel-activerecord_connection (~> 1.1)
       tilt
     rspec-core (3.10.1)
@@ -352,7 +352,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.0.alpha2)
   redis (~> 4.0)
-  rodauth-rails (~> 0.7.0)
+  rodauth-rails (~> 0.18.0)
   rspec-rails
   rss (~> 0.2)
   rubocop (= 1.22.0)
