@@ -2,8 +2,8 @@
 
 ## Requirements
 
-* Ruby 3.0.0
-* Rails 6.1
+* Ruby 3
+* Rails 7
 * PostgreSQL ~13
 
 ## Initialization
