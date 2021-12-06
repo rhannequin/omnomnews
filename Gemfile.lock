@@ -136,7 +136,7 @@ GEM
       reline (>= 0.2.7)
     jbuilder (2.11.3)
       activesupport (>= 5.0.0)
-    jsbundling-rails (0.1.9)
+    jsbundling-rails (0.2.2)
       railties (>= 6.0.0)
     loofah (2.12.0)
       crass (~> 1.0.2)
@@ -349,7 +349,7 @@ DEPENDENCIES
   foreman (~> 0.87)
   hamlit (~> 2.13)
   jbuilder (~> 2.7)
-  jsbundling-rails (~> 0.1.0)
+  jsbundling-rails (~> 0.2.2)
   pg (~> 1.2)
   prettier
   puma (~> 5.0)
