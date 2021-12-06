@@ -8,9 +8,9 @@
         %th= t("twitter_followings.index.actions.title")
     %tbody
       - @twitter_followings.each do |twitter_following|
-        %tr
+        = content_tag :tr, id: dom_id(twitter_following) do
           %td= "##{twitter_following.id}"
           %td= twitter_following.username
-          %td= link_to t("twitter_followings.index.actions.delete"), twitter_following_path(twitter_following), method: :delete, data: { confirm: t("twitter_followings.index.actions.destroy_warning") }, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+          %td= link_to t("twitter_followings.index.actions.destroy"), twitter_following_path(twitter_following), data: { "turbo-method": :delete, controller: "confirmation", action: "confirmation#confirm", "confirmation-message-value": t("twitter_followings.index.actions.destroy_warning") }, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
 
   %p= link_to t("twitter_followings.index.actions.create"), new_twitter_following_path, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"

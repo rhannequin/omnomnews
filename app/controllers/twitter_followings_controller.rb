@@ -25,6 +25,9 @@ class TwitterFollowingsController < ApplicationController
   def destroy
     @twitter_following = TwitterFollowing.find(params[:id])
     Om::Twitter::UnfollowUser.new(@twitter_following).perform
-    redirect_to twitter_followings_path
+    respond_to do |format|
+      format.html { redirect_to twitter_followings_path }
+      format.turbo_stream
+    end
   end
 end

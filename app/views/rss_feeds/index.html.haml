@@ -9,11 +9,11 @@
         %th= t("rss_feeds.index.actions.title")
     %tbody
       - @rss_feeds.each do |rss_feed|
-        %tr
+        = content_tag :tr, id: dom_id(rss_feed) do
           %td= "##{rss_feed.id}"
           %td= rss_feed.title
           %td
             %code= rss_feed.uri
-          %td= link_to t("rss_feeds.index.actions.destroy"), rss_feed_path(rss_feed), method: :delete, data: { confirm: t("rss_feeds.index.actions.destroy_warning") }, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+          %td= link_to t("rss_feeds.index.actions.destroy"), rss_feed_path(rss_feed), data: { "turbo-method": :delete, controller: "confirmation", action: "confirmation#confirm", "confirmation-message-value": t("rss_feeds.index.actions.destroy_warning") }, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
 
   %p= link_to t("rss_feeds.index.actions.create"), new_rss_feed_path, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
