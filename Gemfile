@@ -43,7 +43,7 @@ end
 
 group :test do
   gem "capybara", "~> 3.36"
-  gem "database_cleaner", "~> 1.8"
+  gem "database_cleaner", "~> 2.0"
   gem "selenium-webdriver", "~> 4"
   gem "simplecov", "~> 0.19", require: false
   gem "webdrivers", "~> 4.4"

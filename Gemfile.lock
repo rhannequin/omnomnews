@@ -90,7 +90,12 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.0.0)
       railties (>= 6.0.0)
-    database_cleaner (1.99.0)
+    database_cleaner (2.0.1)
+      database_cleaner-active_record (~> 2.0.0)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     database_consistency (1.1.7)
       activerecord (>= 3.2)
     debug (1.4.0)
@@ -337,7 +342,7 @@ DEPENDENCIES
   brakeman
   capybara (~> 3.36)
   cssbundling-rails (>= 0.1.0)
-  database_cleaner (~> 1.8)
+  database_cleaner (~> 2.0)
   database_consistency
   debug
   factory_bot_rails
