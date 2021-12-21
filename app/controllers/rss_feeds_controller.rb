@@ -21,10 +21,7 @@ class RssFeedsController < ApplicationController
   def destroy
     @rss_feed = current_account.rss_feeds.find(params[:id])
     Om::RssFeed::Destroy.new(@rss_feed).perform
-    respond_to do |format|
-      format.html { redirect_to rss_feeds_path }
-      format.turbo_stream
-    end
+    redirect_to rss_feeds_path, notice: t("rss_feeds.destroy.flash.notice"), status: :see_other
   end
 
   private

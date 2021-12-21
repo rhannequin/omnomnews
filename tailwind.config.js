@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: [
+  content: [
     './app/views/**/*.html.haml',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js'

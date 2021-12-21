@@ -1,16 +1,16 @@
 {
   "name": "omnomnews",
-  "private": true,
+  "private": "true",
   "dependencies": {
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo-rails": "^7.1.0",
     "autoprefixer": "^10.4.0",
-    "esbuild": "^0.14.2",
-    "postcss": "^8.4.4",
-    "tailwindcss": "^2.2.19"
+    "esbuild": "^0.14.7",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.7"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --outdir=app/assets/builds",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "tailwindcss --postcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
   }
 }

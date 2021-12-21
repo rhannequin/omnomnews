@@ -4,6 +4,9 @@ en:
       subtitle: Enter the username of a Twitter account you want to follow
       username:
         placeholder: e.g. dhh
+    destroy:
+      flash:
+        notice: Twitter account deleted
     index:
       actions:
         create: Add new
