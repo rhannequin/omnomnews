@@ -2,4 +2,4 @@
   = form_tag rodauth.logout_path, method: :post do
     - if rodauth.features.include?(:active_sessions)
       = render "global_logout_field"
-    = render "submit", value: "Logout", class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+    = render "submit", value: t("rodauth.logout.submit"), class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

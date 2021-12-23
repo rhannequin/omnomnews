@@ -1,0 +1,35 @@
+en:
+  rodauth:
+    change_login:
+      submit: Change Login
+    change_password:
+      submit: Change Password
+    close_account:
+      submit: Close Account
+    fields:
+      confirm_login:
+        label: Confirm Login
+      confirm_password:
+        label: Confirm Password
+      login:
+        label: Login
+      new_password:
+        label: New Password
+      password:
+        label: Password
+    logout:
+      submit: Logout
+    reset_password:
+      submit: Reset Password
+    reset_password_request:
+      intro: "If you have forgotten your password, you can request a password
+        reset:"
+      submit: Request Password Reset
+    shared:
+      other_links: Other options
+    verify_account:
+      submit: Verify Account
+    verify_account_resend:
+      intro: "If you no longer have the email to verify the account, you can
+        request that it be resent to you:"
+      submit: Send Verification Login Again

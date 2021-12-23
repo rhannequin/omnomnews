@@ -1,5 +1,5 @@
 - unless rodauth.login_form_footer_links.empty?
-  %h2 Other Options
+  %h2= t("rodauth.shared.other_links")
   %ul
     - rodauth.login_form_footer_links.sort.each do |_, link, text|
       %li

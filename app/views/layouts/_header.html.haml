@@ -22,7 +22,7 @@
                 = t("header.account.change_email")
               = link_to rodauth.close_account_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
                 = t("header.account.close_account")
-              = link_to rodauth.logout_path, method: :post, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
+              = link_to rodauth.logout_path, data: { turbo_method: :post }, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
                 = t("header.account.sign_out")
             - else
               = link_to rodauth.login_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do
@@ -50,7 +50,7 @@
           = t("header.account.change_email")
         = link_to rodauth.close_account_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
           = t("header.account.close_account")
-        = link_to rodauth.logout_path, method: :post, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
+        = link_to rodauth.logout_path, data: { turbo_method: :post }, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do
           = t("header.account.sign_out")
       - else
         = link_to rodauth.login_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do

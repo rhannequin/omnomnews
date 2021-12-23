@@ -1,8 +1,7 @@
 = form_tag rodauth.verify_account_resend_path, method: :post do
-  %p
-    If you no longer have the email to verify the account, you can request that it be resent to you:
+  %p.mb-5= t("rodauth.verify_account_resend.intro")
   - if params[rodauth.login_param]
     = render "login_hidden_field"
   - else
     = render "login_field"
-  = render "submit", value: "Send Verification Login Again"
+  = render "submit", value: t("rodauth.verify_account_resend.submit")
