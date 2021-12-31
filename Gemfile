@@ -34,7 +34,7 @@ group :development do
   gem "brakeman"
   gem "database_consistency", require: false
   gem "prettier"
-  gem "rubocop", "1.22.0"
+  gem "rubocop", "1.24.1"
   gem "rubocop-performance"
   gem "rubocop-rails"
   gem "rubocop-rspec"
