@@ -8,7 +8,8 @@ class RssFeedsController < ApplicationController
     @rss_feeds = current_account.rss_feeds
   end
 
-  def new; end
+  def new
+  end
 
   def create
     if @form.submit params.require(:rss_feed)

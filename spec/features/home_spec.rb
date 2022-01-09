@@ -2,7 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable RSpec/MultipleExpectations
 describe "homepage", js: true do
   context "when I am logged in" do
     let(:account) { FactoryBot.create(:account) }
@@ -12,7 +11,7 @@ describe "homepage", js: true do
       FactoryBot.create(
         :rss_feed_item,
         rss_feed: rss_feed,
-        published_at: Time.zone.local(2020, 12, 5),
+        published_at: Time.zone.local(2020, 12, 5)
       )
     end
 

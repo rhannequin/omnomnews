@@ -45,7 +45,7 @@ describe Om::Queries::GroupedElements do
         FactoryBot.create(
           :rss_feed_item,
           rss_feed: rss_feed,
-          published_at: Time.current.midnight,
+          published_at: Time.current.midnight
         )
       end
 

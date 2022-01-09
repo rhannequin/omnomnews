@@ -23,7 +23,7 @@ class Om::Queries::GroupedElements
   def grouped_rss_feed_items
     RssFeedItem
       .includes(:rss_feed)
-      .where(rss_feed: { account_id: account.id })
+      .where(rss_feed: {account_id: account.id})
       .order(published_at: :desc)
       .limit(THRESHOLD)
       .group_by { |rss_feed_item| rss_feed_item.published_at.to_date }

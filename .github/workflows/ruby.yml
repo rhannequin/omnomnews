@@ -73,7 +73,7 @@ jobs:
         bundle exec database_consistency
 
     - name: Check code guidelines
-      run: bundle exec rubocop
+      run: bundle exec standardrb
 
     - name: Check for security vulnerabilities
       run: bundle exec brakeman

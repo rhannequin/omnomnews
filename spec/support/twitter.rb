@@ -6,7 +6,7 @@ RSpec.configure do |config|
       instance_double(
         Om::Twitter::Client,
         provider: TwitterFake::Client.new,
-        provider_class: TwitterFake::Client,
+        provider_class: TwitterFake::Client
       )
     allow(Om::Twitter::Client).to receive(:new).and_return(client)
   end

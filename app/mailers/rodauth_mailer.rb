@@ -14,8 +14,8 @@ class RodauthMailer < ApplicationMailer
   end
 
   def verify_login_change(recipient, old_login, new_login, email_link)
-    @old_login  = old_login
-    @new_login  = new_login
+    @old_login = old_login
+    @new_login = new_login
     @email_link = email_link
 
     mail to: recipient

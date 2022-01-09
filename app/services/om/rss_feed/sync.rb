@@ -22,7 +22,7 @@ class Om::RssFeed::Sync < Om::Service
     @feed ||=
       Om::RssFeed::Proxy.new(
         rss_feed.uri,
-        Om::RssFeed::Parse.new(rss_feed.uri).parse,
+        Om::RssFeed::Parse.new(rss_feed.uri).parse
       )
   end
 

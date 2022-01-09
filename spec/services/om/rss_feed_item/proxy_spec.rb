@@ -5,12 +5,12 @@ require "rails_helper"
 describe Om::RssFeedItem::Proxy do
   subject do
     described_class.new(
-      JSON.parse(parsed_rss_feed_item.to_json, object_class: OpenStruct),
+      JSON.parse(parsed_rss_feed_item.to_json, object_class: OpenStruct)
     )
   end
 
   let(:minimal_attributes) do
-    { id: "identifier-#{rand}", title: "Feed Item Title" }
+    {id: "identifier-#{rand}", title: "Feed Item Title"}
   end
 
   shared_examples "not raising" do
@@ -41,7 +41,7 @@ describe Om::RssFeedItem::Proxy do
 
       context "with 'id' content" do
         let(:parsed_rss_feed_item) do
-          minimal_attributes.merge(id: { content: "identifier-#{rand}" })
+          minimal_attributes.merge(id: {content: "identifier-#{rand}"})
         end
 
         include_examples "not raising"
@@ -50,7 +50,7 @@ describe Om::RssFeedItem::Proxy do
 
       context "with 'guid'" do
         let(:parsed_rss_feed_item) do
-          { guid: "identifier-#{rand}", title: "Feed Item Title" }
+          {guid: "identifier-#{rand}", title: "Feed Item Title"}
         end
 
         include_examples "not raising"
@@ -59,8 +59,8 @@ describe Om::RssFeedItem::Proxy do
         context "with 'guid' content" do
           let(:parsed_rss_feed_item) do
             {
-              guid: { content: "identifier-#{rand}" },
-              title: "Feed Item Title",
+              guid: {content: "identifier-#{rand}"},
+              title: "Feed Item Title"
             }
           end
 
@@ -74,7 +74,7 @@ describe Om::RssFeedItem::Proxy do
 
         it "raises" do
           expect { attribute }.to(
-            raise_error(Om::Errors::RssFeedItemIdentifierError),
+            raise_error(Om::Errors::RssFeedItemIdentifierError)
           )
         end
       end
@@ -89,7 +89,7 @@ describe Om::RssFeedItem::Proxy do
 
       context "with 'title' content" do
         let(:parsed_rss_feed_item) do
-          minimal_attributes.merge({ title: { content: "Feed Item Title" } })
+          minimal_attributes.merge({title: {content: "Feed Item Title"}})
         end
 
         include_examples "not raising"
@@ -113,7 +113,7 @@ describe Om::RssFeedItem::Proxy do
 
       context "with 'description'" do
         let(:parsed_rss_feed_item) do
-          minimal_attributes.merge({ description: "Rss Feed Item Description" })
+          minimal_attributes.merge({description: "Rss Feed Item Description"})
         end
 
         include_examples "not raising"
@@ -130,7 +130,7 @@ describe Om::RssFeedItem::Proxy do
 
       context "with 'link'" do
         let(:parsed_rss_feed_item) do
-          minimal_attributes.merge({ link: "https://google.com" })
+          minimal_attributes.merge({link: "https://google.com"})
         end
 
         include_examples "not raising"
@@ -138,7 +138,7 @@ describe Om::RssFeedItem::Proxy do
 
         context "with 'link' href" do
           let(:parsed_rss_feed_item) do
-            minimal_attributes.merge({ link: { href: "https://google.com" } })
+            minimal_attributes.merge({link: {href: "https://google.com"}})
           end
 
           include_examples "not raising"
@@ -157,7 +157,7 @@ describe Om::RssFeedItem::Proxy do
       context "with 'pubDate'" do
         let(:parsed_rss_feed_item) do
           minimal_attributes.merge(
-            { pubDate: Time.zone.parse("2020-11-02T21:32:11+00:00") },
+            {pubDate: Time.zone.parse("2020-11-02T21:32:11+00:00")}
           )
         end
 

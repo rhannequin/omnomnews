@@ -27,6 +27,6 @@ class Om::Twitter::SyncUser < Om::Service
   end
 
   def default_options
-    { exclude_replies: true }
+    {exclude_replies: true}
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_context "when RSS feed has to be parsed" do
-  let(:feed_object) { { channel: { title: "Feed Title" } } }
+  let(:feed_object) { {channel: {title: "Feed Title"}} }
   let(:fake_rss_feed) do
     JSON.parse(feed_object.to_json, object_class: OpenStruct)
   end

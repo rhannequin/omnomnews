@@ -5,7 +5,7 @@ class AccountPasswordHash < ApplicationRecord
     :account,
     class_name: :Account,
     foreign_key: :id,
-    inverse_of: :account_password_hash,
+    inverse_of: :account_password_hash
   )
 
   validates :password_hash, presence: true

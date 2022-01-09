@@ -8,7 +8,7 @@ describe Om::RssFeed::Sync do
 
     let(:rss_feed) { FactoryBot.create(:rss_feed, :with_items) }
 
-    let(:new_item) { { title: "New Item Title", id: "new-item-identifier" } }
+    let(:new_item) { {title: "New Item Title", id: "new-item-identifier"} }
 
     let(:feed_object) do
       {
@@ -17,9 +17,9 @@ describe Om::RssFeed::Sync do
           items:
             rss_feed
               .items
-              .map { |item| { id: item.identifier, title: item.title } }
-              .append(new_item),
-        },
+              .map { |item| {id: item.identifier, title: item.title} }
+              .append(new_item)
+        }
       }
     end
 
@@ -43,15 +43,15 @@ describe Om::RssFeed::Sync do
             title: rss_feed.title,
             items:
               rss_feed.items.map do |item|
-                { id: item.identifier, title: item.title }
-              end,
-          },
+                {id: item.identifier, title: item.title}
+              end
+          }
         }
       end
 
       it "doesn't add a new RssFeedItem" do
         expect { service.perform }.not_to(
-          change { rss_feed.reload.items.count },
+          change { rss_feed.reload.items.count }
         )
       end
     end

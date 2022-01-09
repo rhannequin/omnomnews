@@ -12,7 +12,7 @@ class Om::Twitter::Tweet::Proxy
       tweeted_at: tweet.created_at,
       truncated: main_tweet.truncated?,
       retweet: tweet.retweet?,
-      quote: tweet.quote?,
+      quote: tweet.quote?
     }.tap { |attr| optional_attributes(tweet, attr) }
   end
 
@@ -42,7 +42,7 @@ class Om::Twitter::Tweet::Proxy
           expanded_url: uri.expanded_url,
           display_url: uri.display_url,
           indice_start: uri.indices.first,
-          indice_end: uri.indices.last,
+          indice_end: uri.indices.last
         }
       end
   end

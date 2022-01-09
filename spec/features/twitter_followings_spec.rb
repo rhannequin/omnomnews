@@ -2,8 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable RSpec/ExampleLength
-# rubocop:disable RSpec/MultipleExpectations
 describe "Twitter accounts", :twitter_fake_api, js: true do
   let(:account) { FactoryBot.create(:account) }
   let(:twitter_following) { FactoryBot.build(:twitter_following) }
@@ -24,7 +22,7 @@ describe "Twitter accounts", :twitter_fake_api, js: true do
       within ".twitter-form" do
         fill_in(
           TwitterFollowing.human_attribute_name(:username),
-          with: twitter_following.username,
+          with: twitter_following.username
         )
         click_on I18n.t("form.submit")
       end
@@ -45,21 +43,18 @@ describe "Twitter accounts", :twitter_fake_api, js: true do
     let(:error_message) { "Something went wrong" }
 
     before do
-      # rubocop:disable RSpec/AnyInstance
       allow_any_instance_of(Om::FollowTwitterUserForm).to(
-        receive(:submit).and_return(false),
+        receive(:submit).and_return(false)
       )
       # rubocop:enable RSpec/AnyInstance
 
-      # rubocop:disable RSpec/AnyInstance
-      # rubocop:disable RSpec/MessageChain
       allow_any_instance_of(Om::FollowTwitterUserForm).to(
-        receive_message_chain(:errors, :any?).and_return(true),
+        receive_message_chain(:errors, :any?).and_return(true)
       )
       allow_any_instance_of(Om::FollowTwitterUserForm).to(
         receive_message_chain(:errors, :full_messages).and_return(
-          [error_message],
-        ),
+          [error_message]
+        )
       )
       # rubocop:enable RSpec/AnyInstance
       # rubocop:enable RSpec/MessageChain
@@ -80,7 +75,7 @@ describe "Twitter accounts", :twitter_fake_api, js: true do
       within ".twitter-form" do
         fill_in(
           TwitterFollowing.human_attribute_name(:username),
-          with: FactoryBot.build(:twitter_following).username,
+          with: FactoryBot.build(:twitter_following).username
         )
         click_on I18n.t("form.submit")
       end

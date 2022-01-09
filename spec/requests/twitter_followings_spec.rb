@@ -7,7 +7,7 @@ describe TwitterFollowingsController, type: :request do
     subject(:execute_request) { post twitter_followings_path, params: params }
 
     let(:account) { FactoryBot.create(:account) }
-    let(:params) { { twitter_following: { username: "dhh" } } }
+    let(:params) { {twitter_following: {username: "dhh"}} }
 
     context "when user is authenticated" do
       let(:submit_status) { true }
@@ -15,9 +15,8 @@ describe TwitterFollowingsController, type: :request do
       before do
         login_as(account)
 
-        # rubocop:disable RSpec/AnyInstance
         allow_any_instance_of(Om::FollowTwitterUserForm).to(
-          receive(:submit).and_return(submit_status),
+          receive(:submit).and_return(submit_status)
         )
         # rubocop:enable RSpec/AnyInstance
       end

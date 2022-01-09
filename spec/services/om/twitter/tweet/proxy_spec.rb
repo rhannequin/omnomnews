@@ -17,9 +17,9 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
         uris?: uris?,
         uris: [uri],
         retweeted_tweet: retweeted_tweet,
-        quoted_status: 3,
+        quoted_status: 3
       }.to_json,
-      object_class: OpenStruct,
+      object_class: OpenStruct
     )
   end
 
@@ -32,7 +32,7 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
       url: "https://t.co/AbCdEfGhiJ",
       expanded_url: "https://twitter.com/i/web/status/1234567890...",
       display_url: "twitter.com/i/web/status/1…",
-      indices: [1, 2],
+      indices: [1, 2]
     }
   end
 
@@ -61,9 +61,9 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
             expanded_url: "https://twitter.com/i/web/status/1234567890...",
             display_url: "twitter.com/i/web/status/1…",
             indice_start: 1,
-            indice_end: 2,
-          },
-        ],
+            indice_end: 2
+          }
+        ]
       }
     end
 
@@ -98,7 +98,7 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
           quote?: false,
           uris?: false,
           uris: [],
-          user: { screen_name: "rails" },
+          user: {screen_name: "rails"}
         }
       end
 
@@ -110,8 +110,8 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
               truncated: true,
               retweet: true,
               retweet_identifier: 2,
-              retweet_author: "rails",
-            },
+              retweet_author: "rails"
+            }
           )
           .except(:tweet_uris_attributes)
       end
@@ -123,7 +123,7 @@ describe Om::Twitter::Tweet::Proxy, :twitter_fake_api do
       let(:quote?) { true }
 
       let(:expected_attributes) do
-        main_expected_attributes.merge({ quote: true, quote_identifier: 3 })
+        main_expected_attributes.merge({quote: true, quote_identifier: 3})
       end
 
       include_examples "attributes match"

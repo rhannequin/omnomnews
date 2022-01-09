@@ -2,8 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable RSpec/ExampleLength
-# rubocop:disable RSpec/MultipleExpectations
 describe "RSS feeds", js: true do
   let(:account) { FactoryBot.create(:account) }
   let(:rss_feed) { FactoryBot.build(:rss_feed, account: account) }
@@ -26,7 +24,7 @@ describe "RSS feeds", js: true do
       within ".rss-feed-form" do
         fill_in(
           RssFeed.human_attribute_name(:uri),
-          with: rss_feed.uri,
+          with: rss_feed.uri
         )
         click_on I18n.t("form.submit")
       end
@@ -47,21 +45,18 @@ describe "RSS feeds", js: true do
     let(:error_message) { "Something went wrong" }
 
     before do
-      # rubocop:disable RSpec/AnyInstance
       allow_any_instance_of(Om::FollowRssFeedForm).to(
-        receive(:submit).and_return(false),
+        receive(:submit).and_return(false)
       )
       # rubocop:enable RSpec/AnyInstance
 
-      # rubocop:disable RSpec/AnyInstance
-      # rubocop:disable RSpec/MessageChain
       allow_any_instance_of(Om::FollowRssFeedForm).to(
-        receive_message_chain(:errors, :any?).and_return(true),
+        receive_message_chain(:errors, :any?).and_return(true)
       )
       allow_any_instance_of(Om::FollowRssFeedForm).to(
         receive_message_chain(:errors, :full_messages).and_return(
-          [error_message],
-        ),
+          [error_message]
+        )
       )
       # rubocop:enable RSpec/AnyInstance
       # rubocop:enable RSpec/MessageChain
@@ -82,7 +77,7 @@ describe "RSS feeds", js: true do
       within ".rss-feed-form" do
         fill_in(
           RssFeed.human_attribute_name(:uri),
-          with: FactoryBot.build(:rss_feed).uri,
+          with: FactoryBot.build(:rss_feed).uri
         )
         click_on I18n.t("form.submit")
       end

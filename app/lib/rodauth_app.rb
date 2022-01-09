@@ -15,7 +15,7 @@ class RodauthApp < Rodauth::Rails::App
       :change_password_notify,
       :change_login,
       # :verify_login_change,
-      :close_account,
+      :close_account
     )
 
     # See the Rodauth documentation for the list of available config options:

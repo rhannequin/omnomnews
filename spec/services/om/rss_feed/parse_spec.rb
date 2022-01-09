@@ -20,7 +20,7 @@ describe Om::RssFeed::Parse do
   describe "#parse" do
     it "works" do
       expect(RSS::Parser).to(
-        receive(:parse).with(rss_feed_dbl), # rubocop:disable RSpec/MessageSpies
+        receive(:parse).with(rss_feed_dbl)
       )
       service.parse
     end

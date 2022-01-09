@@ -7,7 +7,7 @@ describe Om::FollowRssFeedForm do
 
   let(:account) { FactoryBot.create(:account) }
   let(:uri) { FactoryBot.build(:rss_feed).uri }
-  let(:params) { { uri: uri } }
+  let(:params) { {uri: uri} }
 
   let(:service_dbl) do
     instance_double(Om::RssFeed::Create, perform: service_succeeded)
@@ -16,7 +16,7 @@ describe Om::FollowRssFeedForm do
 
   before do
     allow(Om::RssFeed::Create).to(
-      receive(:new).with(account.id, uri).and_return(service_dbl),
+      receive(:new).with(account.id, uri).and_return(service_dbl)
     )
   end
 

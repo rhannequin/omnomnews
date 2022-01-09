@@ -13,7 +13,7 @@ describe Om::Twitter::TwitterFollowing::SyncJob do
 
     before do
       allow(Om::Twitter::SyncUser).to(
-        receive(:new).with(twitter_following).and_return(sync_user_dbl),
+        receive(:new).with(twitter_following).and_return(sync_user_dbl)
       )
     end
 

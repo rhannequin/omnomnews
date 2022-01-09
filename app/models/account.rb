@@ -5,7 +5,7 @@ class Account < ApplicationRecord
     :account_password_hash,
     foreign_key: :id,
     inverse_of: :account,
-    dependent: :destroy,
+    dependent: :destroy
   )
 
   has_many :rss_feeds, dependent: :destroy

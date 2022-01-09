@@ -6,7 +6,7 @@ describe Om::Service do
   subject(:service) do
     Class
       .new(described_class) do
-        perform {} # rubocop:disable Lint/EmptyBlock
+        perform {}
       end
       .new
   end
@@ -39,7 +39,7 @@ describe Om::Service do
 
       it "raises error" do
         expect { service.perform! }.to(
-          raise_error(Om::Service::ServiceFailedError),
+          raise_error(Om::Service::ServiceFailedError)
         )
       end
     end

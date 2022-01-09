@@ -6,7 +6,7 @@ shared_examples "serializer" do
       render
 
       expect(JSON.pretty_generate(JSON.parse(rendered))).to(
-        eq(JSON.pretty_generate(expected_json)),
+        eq(JSON.pretty_generate(expected_json))
       )
     end
   end

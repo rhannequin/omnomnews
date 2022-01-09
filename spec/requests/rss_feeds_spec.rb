@@ -10,8 +10,8 @@ describe RssFeedsController, type: :request do
     let(:params) do
       {
         rss_feed: {
-          uri: FactoryBot.build(:rss_feed, account: account).uri,
-        },
+          uri: FactoryBot.build(:rss_feed, account: account).uri
+        }
       }
     end
 
@@ -21,9 +21,8 @@ describe RssFeedsController, type: :request do
       before do
         login_as(account)
 
-        # rubocop:disable RSpec/AnyInstance
         allow_any_instance_of(Om::FollowRssFeedForm).to(
-          receive(:submit).and_return(submit_status),
+          receive(:submit).and_return(submit_status)
         )
         # rubocop:enable RSpec/AnyInstance
       end

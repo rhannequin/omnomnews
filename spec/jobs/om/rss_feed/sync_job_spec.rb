@@ -11,7 +11,7 @@ describe Om::RssFeed::SyncJob do
 
     before do
       allow(Om::RssFeed::Sync).to(
-        receive(:new).with(rss_feed).and_return(sync_dbl),
+        receive(:new).with(rss_feed).and_return(sync_dbl)
       )
     end
 

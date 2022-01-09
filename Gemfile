@@ -28,16 +28,13 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
   gem "rspec-rails"
+  gem "standard"
 end
 
 group :development do
   gem "brakeman"
   gem "database_consistency", require: false
   gem "prettier"
-  gem "rubocop", "1.22.0"
-  gem "rubocop-performance"
-  gem "rubocop-rails"
-  gem "rubocop-rspec"
   gem "web-console", ">= 4.1.0"
 end
 

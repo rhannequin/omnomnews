@@ -7,7 +7,7 @@ class Om::RssFeed::Proxy
   end
 
   def attributes
-    { uri: uri, title: title, description: description, link: link }
+    {uri: uri, title: title, description: description, link: link}
   end
 
   def entries

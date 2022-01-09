@@ -4,7 +4,7 @@ module AuthenticationRequestSupport
   PASSWORD = "password42"
 
   def login_as(account)
-    post "/login", params: { login: account.email, password: PASSWORD }
+    post "/login", params: {login: account.email, password: PASSWORD}
   end
 end
 

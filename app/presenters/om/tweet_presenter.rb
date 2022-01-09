@@ -47,7 +47,7 @@ class Om::TweetPresenter
       uri.expanded_url,
       class: "no-underline hover:underline text-blue-500",
       target: "_blank",
-      rel: "noopener noreferrer",
+      rel: "noopener noreferrer"
     )
   end
 end

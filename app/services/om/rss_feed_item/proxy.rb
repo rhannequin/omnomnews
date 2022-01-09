@@ -11,7 +11,7 @@ class Om::RssFeedItem::Proxy
       title: title,
       link: link,
       description: description,
-      published_at: published_at,
+      published_at: published_at
     }
   end
 
@@ -26,7 +26,7 @@ class Om::RssFeedItem::Proxy
 
     unless identifier
       raise Om::Errors::RssFeedItemIdentifierError,
-            "Could not define identifier for RssFeedItem"
+        "Could not define identifier for RssFeedItem"
     end
 
     identifier

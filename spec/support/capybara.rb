@@ -32,13 +32,13 @@ when :headless_chrome
             disable-default-apps
             headless
           ],
-          w3c: false,
-        },
+          w3c: false
+        }
       )
     driver_options = {
       browser: :chrome,
       clear_local_storage: true,
-      desired_capabilities: capabilities,
+      desired_capabilities: capabilities
     }
     if ENV["SELENIUM_URL"]
       driver_options[:url] = ENV["SELENIUM_URL"]
@@ -49,12 +49,12 @@ when :chrome
   Capybara.register_driver :chrome do |app|
     capabilities =
       Selenium::WebDriver::Remote::Capabilities.chrome(
-        'goog:chromeOptions': { args: %w[window-size=1680,1050], w3c: false },
+        'goog:chromeOptions': {args: %w[window-size=1680,1050], w3c: false}
       )
     driver_options = {
       browser: :chrome,
       clear_local_storage: true,
-      desired_capabilities: capabilities,
+      desired_capabilities: capabilities
     }
     if ENV["SELENIUM_URL"]
       driver_options[:url] = ENV["SELENIUM_URL"]

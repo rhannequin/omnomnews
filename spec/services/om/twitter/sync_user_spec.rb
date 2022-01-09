@@ -11,7 +11,7 @@ describe Om::Twitter::SyncUser, :twitter_fake_api do
     it "creates a tweet with uris" do
       expect { service.perform }.to change(Tweet, :count).by(1).and change(
         TweetUri,
-        :count,
+        :count
       ).by(1)
     end
 
@@ -22,7 +22,7 @@ describe Om::Twitter::SyncUser, :twitter_fake_api do
         {
           identifier: tweet_identifier,
           content: "Tweet content",
-          tweeted_at: Time.current,
+          tweeted_at: Time.current
         }
       end
 
@@ -34,7 +34,7 @@ describe Om::Twitter::SyncUser, :twitter_fake_api do
         FactoryBot.create(
           :tweet,
           twitter_following: twitter_following,
-          identifier: tweet_identifier,
+          identifier: tweet_identifier
         )
 
         allow(Om::Twitter::Tweet::Proxy).to receive(:new).and_return(proxy)

@@ -14,19 +14,19 @@ describe Om::RssFeed::Create do
     it "creates a new RssFeed" do
       expect { service.perform }.to change(RssFeed, :count).by(1).and change(
         RssFeedItem,
-        :count,
+        :count
       ).by(0)
     end
 
     context "when feed has items" do
-      let(:item) { { id: "identifier-#{rand}", title: "Feed Item Title" } }
+      let(:item) { {id: "identifier-#{rand}", title: "Feed Item Title"} }
 
-      let(:feed_object) { { channel: { title: "Feed Title", items: [item] } } }
+      let(:feed_object) { {channel: {title: "Feed Title", items: [item]}} }
 
       it "creates a new RssFeed and its items" do
         expect { service.perform }.to change(RssFeed, :count).by(1).and change(
           RssFeedItem,
-          :count,
+          :count
         ).by(1)
       end
     end
@@ -40,8 +40,8 @@ describe Om::RssFeed::Create do
         allow(parse_dbl).to(
           receive(:parse).and_raise(
             Om::Errors::RssFeedParsingError,
-            error_message,
-          ),
+            error_message
+          )
         )
       end
 

@@ -9,7 +9,7 @@ RSpec.configure do |config|
 
     WebMock.disable_net_connect!(
       allow_localhost: true,
-      allow: [driver_urls, selenium_requests],
+      allow: [driver_urls, selenium_requests]
     )
   end
 end

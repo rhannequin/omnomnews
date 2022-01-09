@@ -7,7 +7,7 @@ FactoryBot.define do
 
     after(:create) do |account|
       account.create_account_password_hash!(
-        password_hash: BCrypt::Password.create("password42"),
+        password_hash: BCrypt::Password.create("password42")
       )
     end
   end
