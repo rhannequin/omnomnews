@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_04_002804) do
-
+ActiveRecord::Schema.define(version: 2022_01_21_210752) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -106,6 +105,8 @@ ActiveRecord::Schema.define(version: 2021_12_04_002804) do
     t.string "username", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_twitter_followings_on_account_id"
   end
 
   add_foreign_key "account_login_change_keys", "accounts", column: "id"
@@ -117,4 +118,5 @@ ActiveRecord::Schema.define(version: 2021_12_04_002804) do
   add_foreign_key "rss_feeds", "accounts"
   add_foreign_key "tweet_uris", "tweets"
   add_foreign_key "tweets", "twitter_followings"
+  add_foreign_key "twitter_followings", "accounts"
 end
