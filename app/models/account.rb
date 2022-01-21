@@ -9,6 +9,7 @@ class Account < ApplicationRecord
   )
 
   has_many :rss_feeds, dependent: :destroy
+  has_many :twitter_followings, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
 end

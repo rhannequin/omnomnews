@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :twitter_following do
+    account
     username { "rails" }
   end
 

@@ -15,8 +15,16 @@ describe "homepage", js: true do
       )
     end
 
+    let(:twitter_following) do
+      FactoryBot.create(:twitter_following, account: account)
+    end
+
     let!(:tweet) do
-      FactoryBot.create(:tweet, tweeted_at: Time.zone.local(2020, 12, 4))
+      FactoryBot.create(
+        :tweet,
+        twitter_following: twitter_following,
+        tweeted_at: Time.zone.local(2020, 12, 4)
+      )
     end
 
     it "I can see the timeline" do
