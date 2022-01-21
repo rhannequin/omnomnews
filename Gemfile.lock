@@ -179,7 +179,7 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.0-x86_64-linux)
+    nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
     parallel (1.21.0)
     parser (3.1.0.0)
@@ -226,15 +226,15 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
-    roda (3.51.0)
+    roda (3.52.0)
       rack
     rodauth (2.19.0)
       roda (>= 2.6.0)
       sequel (>= 4)
-    rodauth-rails (0.18.1)
+    rodauth-rails (1.1.0)
       bcrypt
       railties (>= 4.2, < 8)
-      rodauth (~> 2.15)
+      rodauth (~> 2.19)
       sequel-activerecord_connection (~> 1.1)
       tilt
     rspec-core (3.10.1)
@@ -372,7 +372,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.0)
   redis (~> 4.0)
-  rodauth-rails (~> 0.18.1)
+  rodauth-rails (~> 1.1.0)
   rspec-rails
   rss (~> 0.2)
   selenium-webdriver (~> 4)
