@@ -43,6 +43,6 @@ group :test do
   gem "database_cleaner", "~> 1.8"
   gem "selenium-webdriver", "~> 4"
   gem "simplecov", "~> 0.19", require: false
-  gem "webdrivers", "~> 4.4"
+  gem "webdrivers", "~> 5.0"
   gem "webmock", "~> 3.10"
 end
