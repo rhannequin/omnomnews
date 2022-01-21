@@ -4,8 +4,9 @@ require "rails_helper"
 
 describe Om::Twitter::FollowUser do
   describe "#perform" do
-    subject(:service) { described_class.new(username) }
+    subject(:service) { described_class.new(account_id, username) }
 
+    let(:account_id) { FactoryBot.create(:account).id }
     let(:username) { "twitter-username" }
 
     it "creates a new TwitterFollowing" do

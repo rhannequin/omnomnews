@@ -9,20 +9,47 @@ describe Om::Queries::GroupedElements do
     let(:account) { FactoryBot.create(:account) }
     let(:fetch) { subject.fetch }
 
+    let(:twitter_following) do
+      FactoryBot.create(:twitter_following, account: account)
+    end
+
     context "when there is only one element" do
-      let!(:tweet) { FactoryBot.create(:tweet) }
+      let!(:tweet) do
+        FactoryBot.create(:tweet, twitter_following: twitter_following)
+      end
 
       it "contains the date and the element" do
         expect(fetch.first).to match([tweet.tweeted_at.to_date, [tweet]])
       end
     end
 
+    context "when the element is not associated to the account" do
+      it "doesn't include the tweet" do
+        FactoryBot.create(:tweet)
+        expect(fetch.first).to be_nil
+      end
+
+      it "doesn't include the tweet" do
+        FactoryBot.create(:rss_feed_item)
+        expect(fetch.first).to be_nil
+      end
+    end
+
     context "when there are two elements with different dates" do
       let!(:tweet1) do
-        FactoryBot.create(:tweet, tweeted_at: Time.current.midnight)
+        FactoryBot.create(
+          :tweet,
+          twitter_following: twitter_following,
+          tweeted_at: Time.current.midnight
+        )
       end
+
       let!(:tweet2) do
-        FactoryBot.create(:tweet, tweeted_at: Time.zone.yesterday.midnight)
+        FactoryBot.create(
+          :tweet,
+          twitter_following: twitter_following,
+          tweeted_at: Time.zone.yesterday.midnight
+        )
       end
 
       it "contains the first date" do
@@ -36,7 +63,11 @@ describe Om::Queries::GroupedElements do
 
     context "when there are two different elements for the same date" do
       let!(:tweet) do
-        FactoryBot.create(:tweet, tweeted_at: Time.current.midnight)
+        FactoryBot.create(
+          :tweet,
+          twitter_following: twitter_following,
+          tweeted_at: Time.current.midnight
+        )
       end
 
       let(:rss_feed) { FactoryBot.create(:rss_feed, account: account) }

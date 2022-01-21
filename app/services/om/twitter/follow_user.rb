@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Om::Twitter::FollowUser < Om::Service
-  def initialize(username)
+  def initialize(account_id, username)
+    @account_id = account_id
     @username = username
     super()
   end
@@ -10,9 +11,10 @@ class Om::Twitter::FollowUser < Om::Service
 
   private
 
-  attr_reader :username
-
   def create_twitter_following!
-    TwitterFollowing.create!(username: username)
+    TwitterFollowing.create!(
+      account_id: @account_id,
+      username: @username
+    )
   end
 end

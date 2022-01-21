@@ -5,8 +5,9 @@ require "rails_helper"
 describe Om::FollowTwitterUserForm do
   subject(:form) { described_class.new }
 
+  let(:account_id) { FactoryBot.create(:account).id }
   let(:username) { "dhh" }
-  let(:params) { {username: username} }
+  let(:params) { {username: username, account_id: account_id} }
 
   let(:service_dbl) do
     instance_double(Om::Twitter::FollowUser, perform: service_succeeded)
@@ -15,7 +16,7 @@ describe Om::FollowTwitterUserForm do
 
   before do
     allow(Om::Twitter::FollowUser).to(
-      receive(:new).with(username).and_return(service_dbl)
+      receive(:new).with(account_id, username).and_return(service_dbl)
     )
   end
 

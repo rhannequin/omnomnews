@@ -32,6 +32,7 @@ class Om::Queries::GroupedElements
   def grouped_tweets
     Tweet
       .includes(:twitter_following, :tweet_uris)
+      .where(twitter_following: {account_id: account.id})
       .order(tweeted_at: :desc)
       .limit(THRESHOLD)
       .group_by { |tweet| tweet.tweeted_at.to_date }
