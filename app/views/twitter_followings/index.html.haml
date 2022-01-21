@@ -1,12 +1,12 @@
 .m-4
 
   %table.table-auto.border-collapse
-    %thead
+    %thead.dark:text-white
       %tr
         %th= TwitterFollowing.human_attribute_name(:id)
         %th= TwitterFollowing.human_attribute_name(:username)
         %th= t("twitter_followings.index.actions.title")
-    %tbody
+    %tbody.dark:text-slate-400
       - @twitter_followings.each do |twitter_following|
         = content_tag :tr, id: dom_id(twitter_following) do
           %td= "##{twitter_following.id}"

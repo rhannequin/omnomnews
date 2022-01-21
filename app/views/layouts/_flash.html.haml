@@ -1,11 +1,11 @@
 - if flash.notice.present?
-  .sm:rounded-md.shadow-sm.bg-blue-50.p-4.mb-8{ class: "" }
+  .sm:rounded-md.shadow-sm.bg-blue-50.dark:bg-blue-800.p-4.m-8
     .ml-3.flex-1.md:flex.md:justify-between
-      %p.text-sm.text-blue-700= flash.notice
+      %p.text-sm.text-blue-700.dark:text-blue-200= flash.notice
 
 - if flash.alert.present?
-  .sm:rounded-md.shadow-sm.bg-red-50.p-4.mb-8
+  .sm:rounded-md.shadow-sm.bg-red-50.dark:bg-red-800.p-4.mb-8
     .ml-3.flex-1.md:flex.md:justify-between
-      .text-sm.text-red-700= flash.alert
+      .text-sm.text-red-700.dark:text-red-200= flash.alert
 
 = yield :flash

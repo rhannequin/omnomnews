@@ -1,13 +1,13 @@
 .m-4
 
   %table.table-auto.border-collapse
-    %thead
+    %thead.dark:text-white
       %tr
         %th= RssFeed.human_attribute_name(:id)
         %th= RssFeed.human_attribute_name(:title)
         %th= RssFeed.human_attribute_name(:uri)
         %th= t("rss_feeds.index.actions.title")
-    %tbody
+    %tbody.dark:text-slate-400
       - @rss_feeds.each do |rss_feed|
         = content_tag :tr, id: dom_id(rss_feed) do
           %td= "##{rss_feed.id}"
