@@ -1,5 +1,4 @@
 .mt-8.sm:mx-auto.sm:w-full.sm:max-w-md
-  .bg-white.p-4.pb-8.px-4.shadow.sm:rounded-lg.sm:px-10
-    = form_tag rodauth.close_account_path, method: :post do
-      = render "password_field" if rodauth.close_account_requires_password?
-      = render "submit", value: t("rodauth.close_account.submit"), class: "btn btn-danger"
+  = form_tag rodauth.close_account_path, method: :post do
+    = render "password_field" if rodauth.close_account_requires_password?
+    = render "submit", value: t("rodauth.close_account.submit"), class: "btn btn-danger"

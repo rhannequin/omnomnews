@@ -12,5 +12,5 @@
       = render "layouts/svg/retweet_icon"
       = presenter.twitter_account_url(tweet.retweet_author, class: "text-green-300", target: "_blank", rel: "noopener noreferrer")
 
-%p.text-base.text-blue-900
+%p.text-base.text-blue-900.dark:text-blue-300
   = raw presenter.enriched_content
