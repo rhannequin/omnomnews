@@ -5,5 +5,7 @@ class TwitterFollowing < ApplicationRecord
 
   has_many :tweets, dependent: :destroy
 
+  acts_as_taggable_on :tags
+
   validates :username, presence: true
 end
