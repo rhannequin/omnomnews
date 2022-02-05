@@ -3,10 +3,12 @@ en:
     attributes:
       rss_feed:
         id: ID
+        tags: Tags
         title: Title
         uri: URI
       twitter_following:
         id: ID
+        tags: Tags
         username: Username
     models:
       rss_feed: RSS feed

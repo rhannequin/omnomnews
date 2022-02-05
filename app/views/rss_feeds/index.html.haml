@@ -4,6 +4,7 @@
       %th= RssFeed.human_attribute_name(:id)
       %th= RssFeed.human_attribute_name(:title)
       %th= RssFeed.human_attribute_name(:uri)
+      %th= RssFeed.human_attribute_name(:tags)
       %th= t("rss_feeds.index.actions.title")
   %tbody.dark:text-slate-400
     - @rss_feeds.each do |rss_feed|
@@ -12,6 +13,7 @@
         %td= rss_feed.title
         %td
           %code= rss_feed.uri
+        %td= rss_feed.tag_list.join(", ")
         %td= link_to t("rss_feeds.index.actions.destroy"), rss_feed_path(rss_feed), data: { turbo_method: :delete, turbo_confirm: t("rss_feeds.index.actions.destroy_warning") }, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
 
 %p= link_to t("rss_feeds.index.actions.create"), new_rss_feed_path, class: "w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
