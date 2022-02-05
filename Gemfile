@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.0.3"
 gem "rails", "~> 7.0.0"
 
+gem "acts-as-taggable-on", "~> 9.0"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "cssbundling-rails", ">= 0.1.0"
