@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_213823) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_03_18_230833) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -77,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_213823) do
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
-    t.integer "taggable_id"
+    t.bigint "taggable_id"
     t.string "tagger_type"
     t.integer "tagger_id"
     t.string "context", limit: 128
