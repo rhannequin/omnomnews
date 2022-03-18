@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_18_231244) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_18_231939) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -74,12 +74,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_231244) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer "tag_id"
+    t.integer "tag_id", null: false
     t.string "taggable_type"
-    t.bigint "taggable_id"
+    t.bigint "taggable_id", null: false
     t.string "tagger_type"
     t.integer "tagger_id"
-    t.string "context", limit: 128
+    t.string "context", limit: 128, null: false
     t.datetime "created_at"
     t.string "tenant", limit: 128
     t.index ["context"], name: "index_taggings_on_context"
