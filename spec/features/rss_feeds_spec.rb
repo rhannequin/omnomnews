@@ -44,24 +44,6 @@ describe "RSS feeds", js: true do
   context "when adding a RSS feed fails" do
     let(:error_message) { "Something went wrong" }
 
-    before do
-      allow_any_instance_of(Om::FollowRssFeedForm).to(
-        receive(:submit).and_return(false)
-      )
-      # rubocop:enable RSpec/AnyInstance
-
-      allow_any_instance_of(Om::FollowRssFeedForm).to(
-        receive_message_chain(:errors, :any?).and_return(true)
-      )
-      allow_any_instance_of(Om::FollowRssFeedForm).to(
-        receive_message_chain(:errors, :full_messages).and_return(
-          [error_message]
-        )
-      )
-      # rubocop:enable RSpec/AnyInstance
-      # rubocop:enable RSpec/MessageChain
-    end
-
     it "I am noticed of the errors" do
       login_as(account)
 
@@ -77,14 +59,16 @@ describe "RSS feeds", js: true do
       within ".rss-feed-form" do
         fill_in(
           RssFeed.human_attribute_name(:uri),
-          with: FactoryBot.build(:rss_feed).uri
+          with: "invalid url"
         )
         click_on I18n.t("form.submit")
       end
 
-      expect(page).to have_content(error_message)
+      expect(page).to(
+        have_content(
+          I18n.t("activerecord.errors.models.rss_feed.attributes.uri.invalid")
+        )
+      )
     end
   end
 end
-# rubocop:enable RSpec/ExampleLength
-# rubocop:enable RSpec/MultipleExpectations

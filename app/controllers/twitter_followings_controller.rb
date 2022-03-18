@@ -15,7 +15,7 @@ class TwitterFollowingsController < ApplicationController
     if @form.submit params.require(:twitter_following)
       redirect_to twitter_followings_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

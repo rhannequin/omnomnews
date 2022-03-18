@@ -10,6 +10,12 @@ en:
         id: ID
         tags: Tags
         username: Username
+    errors:
+      models:
+        rss_feed:
+          attributes:
+            uri:
+              invalid: Invalid URL
     models:
       rss_feed: RSS feed
       twitter_following: Twitter account

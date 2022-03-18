@@ -7,7 +7,6 @@ describe Om::Queries::GroupedElements do
     subject { described_class.new(account: account) }
 
     let(:account) { FactoryBot.create(:account) }
-    let(:fetch) { subject.fetch }
 
     let(:twitter_following) do
       FactoryBot.create(:twitter_following, account: account)
@@ -19,19 +18,21 @@ describe Om::Queries::GroupedElements do
       end
 
       it "contains the date and the element" do
-        expect(fetch.first).to match([tweet.tweeted_at.to_date, [tweet]])
+        expect(subject.fetch.first).to(
+          match([tweet.tweeted_at.to_date, [tweet]])
+        )
       end
     end
 
     context "when the element is not associated to the account" do
       it "doesn't include the tweet" do
         FactoryBot.create(:tweet)
-        expect(fetch.first).to be_nil
+        expect(subject.fetch.first).to be_nil
       end
 
       it "doesn't include the tweet" do
         FactoryBot.create(:rss_feed_item)
-        expect(fetch.first).to be_nil
+        expect(subject.fetch.first).to be_nil
       end
     end
 
@@ -53,11 +54,11 @@ describe Om::Queries::GroupedElements do
       end
 
       it "contains the first date" do
-        expect(fetch.first).to match([tweet1.tweeted_at.to_date, [tweet1]])
+        expect(subject.fetch.first).to match([tweet1.tweeted_at.to_date, [tweet1]])
       end
 
       it "contains the second date" do
-        expect(fetch.second).to match([tweet2.tweeted_at.to_date, [tweet2]])
+        expect(subject.fetch.second).to match([tweet2.tweeted_at.to_date, [tweet2]])
       end
     end
 
@@ -81,7 +82,7 @@ describe Om::Queries::GroupedElements do
       end
 
       it "contains the two elements with only one date" do
-        expect(fetch.first).to(
+        expect(subject.fetch.first).to(
           match [tweet.tweeted_at.to_date, [rss_feed_item, tweet]]
         )
       end

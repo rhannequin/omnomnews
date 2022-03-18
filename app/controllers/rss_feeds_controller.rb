@@ -15,7 +15,7 @@ class RssFeedsController < ApplicationController
     if @form.submit params.require(:rss_feed)
       redirect_to rss_feeds_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -5,14 +5,8 @@ require "rails_helper"
 describe Om::Service do
   subject(:service) do
     Class
-      .new(described_class) do
-        perform {}
-      end
+      .new(described_class) { perform {} }
       .new
-  end
-
-  let(:service_with_error) do
-    Class.new(described_class) { perform { add_error :error } }.new
   end
 
   describe "#perform" do
@@ -21,9 +15,10 @@ describe Om::Service do
     end
 
     context "when service has errors" do
-      subject(:service) { service_with_error }
-
       it "returns false" do
+        service = Class
+          .new(described_class) { perform { add_error :error } }
+          .new
         expect(service.perform).to be false
       end
     end
@@ -35,9 +30,10 @@ describe Om::Service do
     end
 
     context "when service has errors" do
-      subject(:service) { service_with_error }
-
       it "raises error" do
+        service = Class
+          .new(described_class) { perform { add_error :error } }
+          .new
         expect { service.perform! }.to(
           raise_error(Om::Service::ServiceFailedError)
         )
