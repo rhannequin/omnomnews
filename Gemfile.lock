@@ -233,7 +233,7 @@ GEM
     rodauth (2.21.0)
       roda (>= 2.6.0)
       sequel (>= 4)
-    rodauth-rails (1.1.0)
+    rodauth-rails (1.2.2)
       bcrypt
       railties (>= 4.2, < 8)
       rodauth (~> 2.19)
@@ -375,7 +375,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.2)
   redis (~> 4.0)
-  rodauth-rails (~> 1.1.0)
+  rodauth-rails (~> 1.2.2)
   rspec-rails
   rss (~> 0.2)
   selenium-webdriver (~> 4)
