@@ -283,7 +283,7 @@ GEM
       activerecord (>= 4.2, < 8)
       after_commit_everywhere (~> 1.1)
       sequel (~> 5.38)
-    sidekiq (6.4.1)
+    sidekiq (6.4.2)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
