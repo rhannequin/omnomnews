@@ -21,7 +21,7 @@ when :headless_chrome
   Capybara.register_driver :headless_chrome do |app|
     capabilities =
       Selenium::WebDriver::Remote::Capabilities.chrome(
-        'goog:chromeOptions': {
+        "goog:chromeOptions": {
           args: %w[
             no-sandbox
             window-size=1680,3000
@@ -49,7 +49,7 @@ when :chrome
   Capybara.register_driver :chrome do |app|
     capabilities =
       Selenium::WebDriver::Remote::Capabilities.chrome(
-        'goog:chromeOptions': {args: %w[window-size=1680,1050], w3c: false}
+        "goog:chromeOptions": {args: %w[window-size=1680,1050], w3c: false}
       )
     driver_options = {
       browser: :chrome,
