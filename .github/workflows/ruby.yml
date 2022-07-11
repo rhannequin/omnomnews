@@ -64,14 +64,6 @@ jobs:
       run: |
         COVERAGE=true bundle exec rspec
 
-    - name: Check database constraints consistency
-      env:
-        DATABASE_URL: postgres://postgres:@localhost:5432/test
-        RAILS_ENV: test
-        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-      run: |
-        bundle exec database_consistency
-
     - name: Check code guidelines
       run: bundle exec standardrb
 

@@ -34,7 +34,6 @@ end
 
 group :development do
   gem "brakeman"
-  gem "database_consistency", require: false
   gem "prettier"
   gem "web-console", ">= 4.1.0"
 end
