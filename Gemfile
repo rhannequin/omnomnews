@@ -4,7 +4,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
-gem "rails", "~> 7.0.2"
+gem "rails", "~> 7.0.4"
 
 gem "acts-as-taggable-on", "~> 9.0"
 gem "bcrypt", "~> 3.1.7"
